@@ -1,0 +1,9 @@
+function sym(...args) {
+  
+  args = args[0].concat(args[1])
+  args = args.sort()
+  console.log(args)
+  return args
+}
+
+sym([1, 2, 3], [5, 2, 1, 4]);
