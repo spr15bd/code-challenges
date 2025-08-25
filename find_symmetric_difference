@@ -1,5 +1,4 @@
 function sym(...args) {
-  
   args = args[0].concat(args[1])
   args = args.sort()
   console.log(args)
