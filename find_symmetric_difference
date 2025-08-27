@@ -5,6 +5,8 @@ function sym(...args) {
   for (let i=0; i<args.length - 1; i++) {
     if (args[i] !== args[i+1]) {
       resultArray.push(args[i])
+    } else {
+      i++
     }
   }
   console.log(resultArray)
