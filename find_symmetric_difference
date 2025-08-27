@@ -1,8 +1,14 @@
 function sym(...args) {
   args = args[0].concat(args[1])
   args = args.sort()
-  console.log(args)
-  return args
+  let resultArray = []
+  for (let i=0; i<args.length - 1; i++) {
+    if (args[i] !== args[i+1]) {
+      resultArray.push(args[i])
+    }
+  }
+  console.log(resultArray)
+  return resultArray
 }
 
-sym([1, 2, 3], [5, 2, 1, 4]);
+sym([1, 2, 3], [5, 2, 1, 4])
