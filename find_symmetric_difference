@@ -5,12 +5,11 @@ function sym(...args) {
   let resultArray = []
   for (let i=0; i<args.length; i++) {
     if (i === args.length - 1) {
-      console.log("reached last element")
       resultArray.push(args[i])
     }
-    if (i < args.length && args[i] === args[i+1]) {
+    if (i < args.length-1 && args[i] === args[i+1]) {
       i++
-    } else {
+    } else if (i < args.length-1) {
       resultArray.push(args[i])
     }
   }
@@ -18,4 +17,4 @@ function sym(...args) {
   return resultArray
 }
 
-sym([1, 2, 3], [5, 2, 1, 4])
+sym([1, 2, 3, 3], [5, 2, 1, 4])
