@@ -1,12 +1,17 @@
 function sym(...args) {
   args = args[0].concat(args[1])
   args = args.sort()
+  console.log(args)
   let resultArray = []
-  for (let i=0; i<args.length - 1; i++) {
-    if (args[i] !== args[i+1]) {
+  for (let i=0; i<args.length; i++) {
+    if (i === args.length - 1) {
+      console.log("reached last element")
       resultArray.push(args[i])
-    } else {
+    }
+    if (i < args.length && args[i] === args[i+1]) {
       i++
+    } else {
+      resultArray.push(args[i])
     }
   }
   console.log(resultArray)
