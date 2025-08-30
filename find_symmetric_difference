@@ -1,4 +1,6 @@
 function sym(...args) {
+  args[0] = [...new Set(args[0])]
+  args[1] = [...new Set(args[1])]
   args = args[0].concat(args[1])
   args = args.sort()
   console.log(args)
@@ -17,4 +19,4 @@ function sym(...args) {
   return resultArray
 }
 
-sym([1, 2, 3, 3], [5, 2, 1, 4])
+sym([1, 2, 3], [5, 2, 1, 4])
