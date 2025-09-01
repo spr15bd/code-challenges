@@ -1,10 +1,17 @@
 function sym(...args) {
-  args.forEach ((arg, i) => {
-    args[i] = [...new Set(args[i])]
+  let finalString = []
+  console.log(args.length)
+  args.forEach ((i, j) => {
+    console.log(i,j)
+    args[j] = [...new Set(args[j])]
+    if (j>0 && j<args.length) {
+      finalString = args[j].concat(args[j-1])
+    }
   })
   
-  args = args[0].concat(args[1])
-  args = args.sort()
+  console.log("finalString: ", finalString)
+  
+  args = finalString.sort()
   console.log(args)
   let resultArray = []
   for (let i=0; i<args.length; i++) {
