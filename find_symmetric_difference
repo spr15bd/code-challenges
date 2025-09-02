@@ -1,6 +1,5 @@
 function sym(...args) {
   let finalString = []
-  console.log(args.length)
   args.forEach ((i, j) => {
     console.log(i,j)
     args[j] = [...new Set(args[j])]
@@ -24,7 +23,7 @@ function sym(...args) {
       resultArray.push(args[i])
     }
   }
-  console.log(resultArray)
+  
   return resultArray
 }
 
