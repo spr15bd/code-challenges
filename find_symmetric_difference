@@ -5,6 +5,7 @@ function sym(...args) {
     args[j] = [...new Set(args[j])]
     if (j>0 && j<args.length) {
       finalString = args[j].concat(args[j-1])
+      console.log("after args[",j,"], finalString is: ", finalString)
     }
   })
   
