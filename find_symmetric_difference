@@ -9,9 +9,11 @@ function sym(...args) {
       finalString = finalString.sort()
       console.log("after args[",j,"], finalString is: ", finalString)
 
+      // elements occurring more than once are not added to resultArray
       for (let i=0; i<finalString.length; i++) {
         if (i === finalString.length - 1) {
           resultArray.push(finalString[i])
+          console.log("added ", finalString[i], " to resultArray")
         }
         if (i < finalString.length-1 && finalString[i] === finalString[i+1]) {
           i++
@@ -31,4 +33,4 @@ function sym(...args) {
   return resultArray
 }
 
-sym([1, 2, 3], [5, 2, 1, 4])
+sym([1, 2, 5], [2, 3, 5], [3, 4, 5])
