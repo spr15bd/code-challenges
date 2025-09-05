@@ -9,14 +9,14 @@ function sym(...args) {
       finalString = finalString.sort()
       console.log("after args[",j,"], finalString is: ", finalString)
 
-      for (let i=0; i<args.length; i++) {
-        if (i === args.length - 1) {
-          resultArray.push(args[i])
+      for (let i=0; i<finalString.length; i++) {
+        if (i === finalString.length - 1) {
+          resultArray.push(finalString[i])
         }
-        if (i < args.length-1 && args[i] === args[i+1]) {
+        if (i < finalString.length-1 && finalString[i] === finalString[i+1]) {
           i++
-        } else if (i < args.length-1) {
-          resultArray.push(args[i])
+        } else if (i < finalString.length-1) {
+          resultArray.push(finalString[i])
         }
       }
     }
@@ -25,10 +25,10 @@ function sym(...args) {
   console.log("finalString: ", finalString)
   
   
-  console.log(args)
+  console.log("and resultArray: ", resultArray)
   
   
   return resultArray
 }
 
-sym([1, 2, 5], [2, 3, 5], [3, 4, 5])
+sym([1, 2, 3], [5, 2, 1, 4])
