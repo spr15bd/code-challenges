@@ -22,6 +22,7 @@ function sym(...args) {
         }
       }
     }
+    console.log("after arg ", j, ", resultArray is ", resultArray) 
   })
   
   console.log("finalString: ", finalString)
