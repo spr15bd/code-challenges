@@ -3,9 +3,10 @@ function sym(...args) {
   let resultArray = []
   args.forEach ((i, j) => {
     console.log(i,j)
-    args[j] = [...new Set(args[j])]
-    if (j>0 && j<args.length) {
-      finalString = args[j].concat(args[j-1])
+    if (j==0) resultArray=[...new Set(args[j])]
+    if (j>0) {
+      resultArray = [...new Set(args[j-1])]
+      finalString = args[j].concat(resultArray)
       finalString = finalString.sort()
       console.log("after args[",j,"], finalString is: ", finalString)
 
@@ -17,7 +18,7 @@ function sym(...args) {
         }
         if (i < finalString.length-1 && finalString[i] === finalString[i+1]) {
           i++
-        } else if (i < finalString.length-1) {
+        } else if (i < finalString.length-1 && !resultArray.includes(finalString[i])) {
           resultArray.push(finalString[i])
         }
       }
