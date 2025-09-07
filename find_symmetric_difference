@@ -3,10 +3,10 @@ function sym(...args) {
   let resultArray = []
   args.forEach ((i, j) => {
     console.log(i,j)
-    if (j==0) resultArray=[...new Set(args[j])]
+    if (j==0) args[0]=[...new Set(args[j])]
     if (j>0) {
-      resultArray = [...new Set(args[j-1])]
-      finalString = args[j].concat(resultArray)
+      args[j] = [...new Set(args[j])]
+      finalString = args[j].concat(args[j-1])
       finalString = finalString.sort()
       console.log("after args[",j,"], finalString is: ", finalString)
 
@@ -35,4 +35,4 @@ function sym(...args) {
   return resultArray
 }
 
-sym([1, 2, 5], [2, 3, 5], [3, 4, 5])
+sym([1, 2, 3], [5,2,1,4])
