@@ -28,7 +28,8 @@ function sym(...args) {
       }
     }
     console.log("after arg ", j, ", resultArray is ", resultArray)
-    //currentString = resultArray
+    currentString = resultArray
+    console.log("after arg ", j, ", currentString is ", currentString)
   })
   
   console.log("finalString: ", finalString)
