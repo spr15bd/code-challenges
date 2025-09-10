@@ -13,7 +13,7 @@ function sym(...args) {
       finalString = args[j].concat(currentString)
       finalString = finalString.sort()
       console.log("after args[",j,"], finalString is: ", finalString)
-
+      resultArray = []
       // elements occurring more than once are not added to resultArray
       for (let i=0; i<finalString.length; i++) {
         if (i === finalString.length - 1) {
@@ -28,7 +28,7 @@ function sym(...args) {
       }
     }
     console.log("after arg ", j, ", resultArray is ", resultArray)
-    currentString = resultArray
+    if (j>0) currentString = resultArray
     console.log("after arg ", j, ", currentString is ", currentString)
   })
   
