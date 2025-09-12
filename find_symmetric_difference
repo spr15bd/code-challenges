@@ -14,7 +14,8 @@ function sym(...args) {
       finalString = finalString.sort()
       console.log("after args[",j,"], finalString is: ", finalString)
       resultArray = []
-      // elements occurring more than once are not added to resultArray
+      
+      // now that the current string of numbers is ordered, remove any which occur more than once; if not add to the resultArray
       for (let i=0; i<finalString.length; i++) {
         if (i === finalString.length - 1) {
           resultArray.push(finalString[i])
