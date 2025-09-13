@@ -1,25 +1,21 @@
 function sym(...args) {
+  let currentString = []
   let finalString = []
   let resultArray = []
-  let currentString = []
   args.forEach ((i, j) => {
-    console.log(i,j)
+    args[j]=[...new Set(args[j])]
     if (j==0) {
-      args[0]=[...new Set(args[j])]
-      currentString = args[0]
+      finalString = args[0]
     }
     if (j>0) {
-      args[j] = [...new Set(args[j])]
-      finalString = args[j].concat(currentString)
+      finalString = args[j].concat(finalString)
       finalString = finalString.sort()
-      console.log("after args[",j,"], finalString is: ", finalString)
       resultArray = []
       
       // now that the current string of numbers is ordered, remove any which occur more than once; if not add to the resultArray
       for (let i=0; i<finalString.length; i++) {
         if (i === finalString.length - 1) {
           resultArray.push(finalString[i])
-          console.log("added ", finalString[i], " to resultArray")
         }
         if (i < finalString.length-1 && finalString[i] === finalString[i+1]) {
           i++
@@ -28,16 +24,8 @@ function sym(...args) {
         }
       }
     }
-    console.log("after arg ", j, ", resultArray is ", resultArray)
     if (j>0) currentString = resultArray
-    console.log("after arg ", j, ", currentString is ", currentString)
   })
-  
-  console.log("finalString: ", finalString)
-  
-  
-  console.log("and resultArray: ", resultArray)
-  
   
   return resultArray
 }
