@@ -1,9 +1,13 @@
 function updateInventory(arr1, arr2) {
     let curInv = arr1.map(item=>item[1])
     console.log(curInv)
-    newInv.forEach(item=>{
+    arr2.forEach(item=>{
         console.log(item[1])
+        if (curInv.includes(item[1])) {
+            arr1[0] += item[0]
+        }
     })
+    console.log(arr1)
     return arr1;
 }
 
