@@ -2,10 +2,12 @@ function updateInventory(arr1, arr2) {
     let curInv = arr1.map(item=>item[1])
     console.log("curInv: ", curInv)
     arr2.forEach(item=>{
-        console.log("arr[2] desc: ", item[1])
+        console.log("arr[2] desc: ", item)
         if (curInv.includes(item[1])) {
-            arr1.find(currItem=>currItem[1]===item[0])[0] += item[0]
-            console.log("new arr1[0][0]: ", arr1[0][0])
+            let itemToAddTo = arr1.find(currItem=>currItem[1]===item[1])
+            console.log(curInv[21])
+            console.log("itemToAddTo: ", itemToAddTo)
+            
         }
     })
     console.log(arr1)
