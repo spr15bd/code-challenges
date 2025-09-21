@@ -1,22 +1,20 @@
 function updateInventory(arr1, arr2) {
     let curInv = arr1.map(item=>{
-        let k = Object.keys(item)[0]
-        return {
-            name: item[1],
-            amt: item[k]
-        }
+        let k = item[0]
+        let v = item[1]
+        return k=>v
     })
-    console.log("curInv: ", curInv)
+    console.log("curInv: ", curInv["Microphone"])
     arr2.forEach(item=>{
         console.log("arr[1] desc: ", item[1])
         if (curInv.find(currentItem=>currentItem.name === item[1])) {
             //let itemToAdd = arr1.find(currItem=>currItem[1]===item[1])
             console.log("itemToAdd: ", item[1])
-            arr1
+            
         }
     })
-    console.log(arr1)
-    return arr1;
+    //console.log(arr1)
+    return curInv;
 }
 // Example inventory lists
 var curInv = [
@@ -33,3 +31,5 @@ var newInv = [
 ];
 
 updateInventory(curInv, newInv);
+console.log(curInv)
+console.log(curInv['Bowling Ball'])
