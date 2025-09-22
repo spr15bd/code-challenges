@@ -1,16 +1,28 @@
 function updateInventory(arr1, arr2) {
-    const obj = {};
+    const curInv = [];
     for(let i = 0; i < arr1.length; i++){
-        const { name, amount } = arr1[i];
-        obj[name] = amount;
+        //console.log("arr1", arr1[i])
+        const [ amount, name ] = arr1[i];
+        curInv[name] = amount;
+        //console.log("obj", curInv)
     };
-    console.log("curInv: ", obj)
+    const newInv = [];
+    for(let i = 0; i < arr2.length; i++){
+        //console.log("arr1", arr1[i])
+        const [ amount, name ] = arr2[i];
+        newInv[name] = amount;
+        //console.log("obj", curInv)
+    };
+    //console.log("curInv: ", curInv['Bowling Ball'])
     arr2.forEach(item=>{
-        console.log("arr[1] desc: ", item[1])
-        if (curInv.find(currentItem=>currentItem.name === item[1])) {
+        console.log("arr[2] desc: ", item[1])
+        if (curInv[item[1]]) {
             //let itemToAdd = arr1.find(currItem=>currItem[1]===item[1])
-            console.log("itemToAdd: ", item[1])
-            
+            console.log("curInv: ", curInv, 
+                "itemToAdd: ", item[1]
+            , " amount to add: ", item[0]
+            , "item to add to: ", curInv[item[1]])
+            curInv[item[1]] += item[0]
         }
     })
     //console.log(arr1)
