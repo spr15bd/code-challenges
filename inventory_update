@@ -1,10 +1,10 @@
 function updateInventory(arr1, arr2) {
-    let curInv = arr1.map(item=>{
-        let k = item[0]
-        let v = item[1]
-        return k=>v
-    })
-    console.log("curInv: ", curInv["Microphone"])
+    const obj = {};
+    for(let i = 0; i < arr1.length; i++){
+        const { name, amount } = arr1[i];
+        obj[name] = amount;
+    };
+    console.log("curInv: ", obj)
     arr2.forEach(item=>{
         console.log("arr[1] desc: ", item[1])
         if (curInv.find(currentItem=>currentItem.name === item[1])) {
