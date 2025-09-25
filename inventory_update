@@ -22,7 +22,9 @@ function updateInventory(arr1, arr2) {
                 "itemToAdd: ", item[1]
             , " amount to add: ", item[0]
             , "item to add to: ", curInv[item[1]])
-            curInv[item[1]] += item[0]
+            let newValue = item[0] + curInv[item[1]]
+            console.log("newValue: ", newValue)
+            curInv.find(invItem=>invItem[1]===item[1])[0] = newValue
         }
     })
     //console.log(arr1)
