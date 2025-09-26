@@ -18,13 +18,15 @@ function updateInventory(arr1, arr2) {
         console.log("arr[2] desc: ", item[1])
         if (curInv[item[1]]) {
             //let itemToAdd = arr1.find(currItem=>currItem[1]===item[1])
-            console.log("curInv: ", curInv, 
-                "itemToAdd: ", item[1]
+            console.log( 
+              "itemToAdd: ", item[1]
             , " amount to add: ", item[0]
             , "item to add to: ", curInv[item[1]])
-            let newValue = item[0] + curInv[item[1]]
-            console.log("newValue: ", newValue)
-            curInv.find(invItem=>invItem[1]===item[1])[0] = newValue
+            curInv[item[1]] += item[0]
+        } else {
+            console.log(item[1], " not previously added, adding")
+            curInv[item[1]] = item[0]
+            console.log("curInv: ", curInv)
         }
     })
     //console.log(arr1)
