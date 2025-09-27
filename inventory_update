@@ -1,35 +1,30 @@
 function updateInventory(arr1, arr2) {
     const curInv = [];
     for(let i = 0; i < arr1.length; i++){
-        //console.log("arr1", arr1[i])
-        const [ amount, name ] = arr1[i];
-        curInv[name] = amount;
-        //console.log("obj", curInv)
+        curInv.push(arr1[i]);
     };
     const newInv = [];
     for(let i = 0; i < arr2.length; i++){
-        //console.log("arr1", arr1[i])
-        const [ amount, name ] = arr2[i];
-        newInv[name] = amount;
-        //console.log("obj", curInv)
+        newInv.push(arr2[i]);
     };
-    //console.log("curInv: ", curInv['Bowling Ball'])
+    console.log("CURINV ", curInv)
     arr2.forEach(item=>{
         console.log("arr[2] desc: ", item[1])
-        if (curInv[item[1]]) {
+        if (curInv.find(i=>i[1]===item[1])) {
             //let itemToAdd = arr1.find(currItem=>currItem[1]===item[1])
             console.log( 
               "itemToAdd: ", item[1]
             , " amount to add: ", item[0]
-            , "item to add to: ", curInv[item[1]])
-            curInv[item[1]] += item[0]
+            , "item to add to: ", curInv.find(i=>i[1]===item[1]))
+            let itemToAddTo = curInv.find(i=>i[1]===item[1])
+            itemToAddTo[0] += item[0]
         } else {
             console.log(item[1], " not previously added, adding")
-            curInv[item[1]] = item[0]
+            curInv.push([item[0], item[1]])
             console.log("curInv: ", curInv)
         }
     })
-    //console.log(arr1)
+    console.log("ci len ", curInv.length)
     return curInv;
 }
 // Example inventory lists
@@ -47,5 +42,3 @@ var newInv = [
 ];
 
 updateInventory(curInv, newInv);
-console.log(curInv)
-console.log(curInv['Bowling Ball'])
