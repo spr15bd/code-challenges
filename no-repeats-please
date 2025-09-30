@@ -1,5 +1,10 @@
 function permAlone(str) {
-  return str;
+  let perms = 0
+  for (let i=0; i<str.length; i++) {
+    console.log(str.charAt(i))
+    perms++
+  }
+  return perms
 }
 
 permAlone('aab');
