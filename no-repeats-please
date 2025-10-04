@@ -1,13 +1,13 @@
 function permAlone(str) {
-  let perms = 0
-  let charArray = [] 
-  for (let i=0; i<str.length; i++) {
-    charArray[i] = str.charAt(i)
-    perms++
-  }
+  let perms = []
+  let charArray = str.split('')
   console.log(charArray)
 
-  findPerms() {
+  function findPerms(chars) {
+    chars.forEach(char=>{
+
+    })
+
     // 012 (aab), 021 (aba), 102 (aab), 120 (aba), 201 (baa), 210 (baa)
   }
 
