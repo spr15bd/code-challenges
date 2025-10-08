@@ -3,16 +3,10 @@ function permAlone(str) {
   let charArray = str.split('')
   console.log(charArray)
 
-  function findPerms(chars) {
-    chars.forEach((char, idx)=>{
-      if (idx === str.length - 1) {
-        let newPerm = chars.concat()
-        console.log("Concatenated string: ", newPerm)
-        perms.push(newPerm);
-      }
-    })
-
-    // abcd, abdc, acbd, acdb, adbc, adcb, bacd, badc, bcad, bcda, bdac, bdca, cabd, cadb, cbad, cbda, cdab, cdba, dabc, dacb, dbac, dbca, dcab, dcba
+  function permutations(k, charArray) {
+    if (k === 1) {
+      return charArray
+    }
   }
 
   // loop over permutations, omit from final array if a permutation repeats a char one after the other, leaving aba and aba
