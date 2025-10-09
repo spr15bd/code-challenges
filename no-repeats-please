@@ -1,7 +1,9 @@
 function permAlone(str) {
   let perms = []
+  let length = str.length
   let charArray = str.split('')
   console.log(charArray)
+  return permutations(length, charArray)
 
   function permutations(k, charArray) {
     if (k === 1) {
