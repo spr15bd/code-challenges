@@ -10,6 +10,12 @@ function permAlone(str) {
     if (k === 1) {
       return charArray
     }
+    for (let i = 0; i < k; i++) {
+      // fix last element
+
+      //record current permutation of k-1
+      // swap 2 elements
+    }
     return permutations(k-1, charArray)
   }
 
