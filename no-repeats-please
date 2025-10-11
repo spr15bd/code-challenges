@@ -6,10 +6,11 @@ function permAlone(str) {
   return permutations(length, charArray)
 
   function permutations(k, charArray) {
+    console.log("k is now ", k)
     if (k === 1) {
       return charArray
     }
-    permutations(k-1, charArray)
+    return permutations(k-1, charArray)
   }
 
   // loop over permutations, omit from final array if a permutation repeats a char one after the other, leaving aba and aba
