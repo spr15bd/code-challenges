@@ -8,7 +8,8 @@ function permAlone(str) {
   function permutations(k, charArray) {
     console.log("k is now ", k)
     if (k === 1) {
-      return charArray
+      perms.push(charArray.toString())
+      //return charArray
     }
     permutations(k - 1, charArray);
     for (let i = 0; i < k-1; i++) {
