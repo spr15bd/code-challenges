@@ -7,6 +7,8 @@ function permAlone(str) {
 
   function permutations(k, charArray) {
     console.log("k is now ", k)
+    //perms.push(charArray.toString())
+    console.log("Perms length: ", perms.length)
     if (k === 1) {
       perms.push(charArray.toString())
       return
@@ -26,9 +28,6 @@ function permAlone(str) {
     }
   }
 
-  // loop over permutations, omit from final array if a permutation repeats a char one after the other, leaving aba and aba
-
-  return perms
+  return perms.length
 }
 permAlone('aab')
-console.log("perms: ", perms)
