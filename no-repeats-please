@@ -3,7 +3,7 @@ function permAlone(str) {
   let length = str.length
   let charArray = str.split('')
   console.log(charArray)
-  return permutations(length, charArray)
+  permutations(length, charArray)
 
   function permutations(k, charArray) {
     console.log("k is now ", k)
@@ -30,4 +30,5 @@ function permAlone(str) {
 
   return perms.length
 }
-permAlone('aab')
+permAlone('aabb')
+console.log("res: ", permAlone('aabb'))
