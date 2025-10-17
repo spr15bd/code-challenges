@@ -28,7 +28,12 @@ function permAlone(str) {
     }
   }
 
-  return perms.length
+  // find non-repeating permutations
+  perms.forEach(perm=>{
+    let charArray = str.split('')
+    console.log(charArray)
+  })
+  return perms
 }
 permAlone('aabb')
-console.log("res: ", permAlone('aabb'))
+console.log("final perms: ", permAlone('aabb'))
