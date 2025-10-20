@@ -28,11 +28,12 @@ function permAlone(str) {
     }
   }
 
+  let nonRepeatingPerms = []
   // find non-repeating permutations
-  perms.filter(perm=>{
+  perms.forEach(perm=>{
     console.log("test perm: ", perm)
     let permHasRepeat = false
-    let charArray = str.split('')
+    let charArray = perm.split('')
     charArray.forEach((char, idx)=>{
       console.log(char, charArray[idx-1])
       if (idx>0 && char===charArray[idx-1]) {
@@ -40,11 +41,11 @@ function permAlone(str) {
         console.log("perm has repeat: ", perm)
       }
     })
-    if (permHasRepeat) {
-      return true
+    if (!permHasRepeat) {
+      nonRepeatingPerms.push(perm)
     }
   })
-  return perms
+  return nonRepeatingPerms.length
 }
 permAlone('aabb')
 console.log("final perms: ", permAlone('aabb'))
