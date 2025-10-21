@@ -2,15 +2,15 @@ function permAlone(str) {
   let perms = []
   let length = str.length
   let charArray = str.split('')
-  console.log(charArray)
+  console.log("initial charArray: ", charArray)
   permutations(length, charArray)
 
   function permutations(k, charArray) {
-    console.log("k is now ", k)
-    //perms.push(charArray.toString())
-    console.log("Perms length: ", perms.length)
+    console.log("k is now ", k, ", charArray to add to perms: ", charArray)
+    //perms.push(charArray)
+    console.log("Perms: ", perms)
     if (k === 1) {
-      perms.push(charArray.toString())
+      perms.push(charArray)
       return
     }
     permutations(k - 1, charArray);
@@ -19,6 +19,7 @@ function permAlone(str) {
         let temp = charArray[k-1]
         charArray[k-1] = charArray[i]
         charArray[i] = temp
+        console.log("swapped ", i,"th and ", k-1,"th")
       } else {
         let temp = charArray[k-1]
         charArray[k-1] = charArray[0]
@@ -27,14 +28,13 @@ function permAlone(str) {
       permutations(k-1, charArray)
     }
   }
-
+  console.log("PERMS: ", perms)
   let nonRepeatingPerms = []
   // find non-repeating permutations
-  perms.forEach(perm=>{
+  perms.filter(perm=>{
     console.log("test perm: ", perm)
     let permHasRepeat = false
-    let charArray = perm.split('')
-    charArray.forEach((char, idx)=>{
+    perm.forEach((char, idx)=>{
       console.log(char, charArray[idx-1])
       if (idx>0 && char===charArray[idx-1]) {
         permHasRepeat = true
