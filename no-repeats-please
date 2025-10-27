@@ -6,7 +6,7 @@ function permAlone(str) {
   permutations(length, charArray)
 
   function permutations(k, charArray) {
-    console.log("k is now ", k, ", charArray to add to perms: ", charArray)
+    //console.log("k is now ", k, ", charArray to add to perms: ", charArray)
     console.log("Perms: ", perms)
     if (k === 1) {
       perms.push(charArray.join(''))
@@ -18,7 +18,7 @@ function permAlone(str) {
         let temp = charArray[k-1]//a
         charArray[k-1] = charArray[i]//a
         charArray[i] = temp//a
-        console.log("swapped ", i,"th and ", k-1,"th")
+        //console.log("swapped ", i,"th and ", k-1,"th")
       } else {
         let temp = charArray[k-1]
         charArray[k-1] = charArray[0]
@@ -37,17 +37,13 @@ function permAlone(str) {
     perm = perm.split('')
     let permHasRepeat = false
     perm.forEach((char, idx)=>{
-      console.log(char, perm[idx-1])
       if (idx>0 && char===perm[idx-1]) {
         permHasRepeat = true
-        console.log("perm has repeat: ", perm)
       }
     })
     if (!permHasRepeat) {
       nonRepeatingPerms.push(perm)
     }
   })
-  console.log("non-repeating items: ", nonRepeatingPerms)
   return nonRepeatingPerms.length
 }
-permAlone('aab')
