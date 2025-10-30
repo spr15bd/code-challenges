@@ -1,12 +1,13 @@
 function pairwise(arr, arg) {
+  let finalSumOfIndices = 0
   arr.forEach((num,idx)=>{
-    for (let x=0; x<arr.length; x++) {
+    for (let x=idx+1; x<arr.length; x++) {
       if (num + arr[x] === arg) {
-        arg = idx + x
+        finalSumOfIndices += idx + x
       }
     }
   })
-  return arg;
+  return finalSumOfIndices;
 }
 
-pairwise([1,4,2,3,0,5], 7);
+console.log(pairwise([1,4,2,3,0,5], 7))
