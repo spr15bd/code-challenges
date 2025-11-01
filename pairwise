@@ -3,7 +3,7 @@ function pairwise(arr, arg) {
   let numUsed = []
   arr.forEach((num,idx)=>{
     for (let x=idx+1; x<arr.length; x++) {
-      if (num + arr[x] === arg && !numUsed[idx]) {
+      if (num + arr[x] === arg && !numUsed[idx] && !numUsed[x]) {
         finalSumOfIndices += idx + x
         numUsed[idx] = true
         numUsed[x] = true
@@ -13,4 +13,4 @@ function pairwise(arr, arg) {
   return finalSumOfIndices;
 }
 
-console.log(pairwise([1,1,1], 2))
+pairwise([0, 0, 0, 0, 1, 1], 1)
