@@ -1,0 +1,16 @@
+function bubbleSort(array) {
+  // Only change code below this line
+  array.forEach(num=>{
+    array.forEach((item,idx)=>{
+      if (array[idx+1] < item) {
+        let temp
+        item = temp
+        item = array[idx+1]
+        array[idx+1] = temp
+      }
+    })
+  })
+  console.log("final array: ", array)
+  return array;
+  // Only change code above this line
+}
