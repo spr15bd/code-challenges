@@ -1,0 +1,8 @@
+function selectionSort(array) {
+  // Only change code below this line
+  let minValue = Math.min(...array)
+  let minValueIdx = array.indexOf(minValue)
+  
+  return array;
+  // Only change code above this line
+}
