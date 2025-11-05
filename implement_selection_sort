@@ -1,8 +1,17 @@
 function selectionSort(array) {
   // Only change code below this line
-  let minValue = Math.min(...array)
-  let minValueIdx = array.indexOf(minValue)
-  
+  while (array.length > 0) {
+    let minValue = Math.min(...array)
+    console.log("minValue: ", minValue)
+    let minValueIdx = array.indexOf(minValue)
+    console.log("minValueIdx: ", minValueIdx)
+    let temp = array[minValueIdx]
+    array[minValueIdx] = array[0]
+    array[0] = temp
+  }
+    
   return array;
   // Only change code above this line
 }
+
+console.log("result: ", selectionSort([1,7,6,5,9]))
