@@ -1,0 +1,7 @@
+function insertionSort(array) {
+  // Only change code below this line
+  let sortedArray = []
+  sortedArray.push(array[0])
+  return sortedArray;
+  // Only change code above this line
+}
