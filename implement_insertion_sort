@@ -2,6 +2,18 @@ function insertionSort(array) {
   // Only change code below this line
   let sortedArray = []
   sortedArray.push(array[0])
+
+  array.shift()
+  sortedArray.push(array[0])
+  if (sortedArray[sortedArray.length-1] < sortedArray[sortedArray.length-2]) {
+    let temp = sortedArray[sortedArray.length-2]
+
+    sortedArray[sortedArray.length-2] = sortedArray[sortedArray.length-1]
+    sortedArray[sortedArray.length-1] = temp
+  }
+
   return sortedArray;
   // Only change code above this line
 }
+
+console.log("res: ", insertionSort([7,3,2,8,5]))
