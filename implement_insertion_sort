@@ -5,15 +5,22 @@ function insertionSort(array) {
 
   array.shift()
   sortedArray.push(array[0])
-  if (sortedArray[sortedArray.length-1] < sortedArray[sortedArray.length-2]) {
-    let temp = sortedArray[sortedArray.length-2]
+  array.shift()
+  let length = sortedArray.length - 1
+  if (sortedArray[length] < sortedArray[length-1]) {
+    let temp = sortedArray[length-1]
 
-    sortedArray[sortedArray.length-2] = sortedArray[sortedArray.length-1]
-    sortedArray[sortedArray.length-1] = temp
+    sortedArray[length-1] = sortedArray[length]
+    sortedArray[length] = temp
   }
+
+  sortedArray.push(array[0])
+  array.shift()
+  length = sortedArray.length - 1
+
 
   return sortedArray;
   // Only change code above this line
 }
 
-console.log("res: ", insertionSort([7,3,2,8,5]))
+console.log("sortedArray: ", insertionSort([7,3,2,8,5]))
