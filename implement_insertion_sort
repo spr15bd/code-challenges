@@ -6,17 +6,31 @@ function insertionSort(array) {
   array.shift()
   sortedArray.push(array[0])
   array.shift()
-  let length = sortedArray.length - 1
-  if (sortedArray[length] < sortedArray[length-1]) {
-    let temp = sortedArray[length-1]
 
-    sortedArray[length-1] = sortedArray[length]
-    sortedArray[length] = temp
+  let elementSorted = false
+  let idx = sortedArray.length - 1
+  if (sortedArray[idx] < sortedArray[idx-1]) {
+    let temp = sortedArray[idx-1]
+
+    sortedArray[idx-1] = sortedArray[idx]
+    sortedArray[idx] = temp
   }
 
   sortedArray.push(array[0])
   array.shift()
-  length = sortedArray.length - 1
+  idx = sortedArray.length - 1
+  while (!elementSorted) {
+    if (sortedArray[idx] < sortedArray[idx-1]) {
+      let temp = sortedArray[idx-1]
+
+      sortedArray[idx-1] = sortedArray[idx]
+      sortedArray[idx] = temp
+      idx--
+    } else {
+      elementSorted = true
+    }
+  }
+
 
 
   return sortedArray;
