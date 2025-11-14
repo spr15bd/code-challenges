@@ -1,20 +1,10 @@
 function insertionSort(array) {
   // Only change code below this line
-  let sortedArray = []
+  let idx = 0
+  let sortedArray = []        
+  let elementSorted = false   // set to true whenever 1 element reached its sorted position
   sortedArray.push(array[0])
-
   array.shift()
-  sortedArray.push(array[0])
-  array.shift()
-
-  let elementSorted = false
-  let idx = sortedArray.length - 1
-  if (sortedArray[idx] < sortedArray[idx-1]) {
-    let temp = sortedArray[idx-1]
-
-    sortedArray[idx-1] = sortedArray[idx]
-    sortedArray[idx] = temp
-  }
 
   sortedArray.push(array[0])
   array.shift()
@@ -30,6 +20,55 @@ function insertionSort(array) {
       elementSorted = true
     }
   }
+  elementSorted = false
+
+  sortedArray.push(array[0])
+  array.shift()
+  idx = sortedArray.length - 1
+  while (!elementSorted) {
+    if (sortedArray[idx] < sortedArray[idx-1]) {
+      let temp = sortedArray[idx-1]
+
+      sortedArray[idx-1] = sortedArray[idx]
+      sortedArray[idx] = temp
+      idx--
+    } else {
+      elementSorted = true
+    }
+  }
+  elementSorted = false
+
+  sortedArray.push(array[0])
+  array.shift()
+  idx = sortedArray.length - 1
+  while (!elementSorted) {
+    if (sortedArray[idx] < sortedArray[idx-1]) {
+      let temp = sortedArray[idx-1]
+
+      sortedArray[idx-1] = sortedArray[idx]
+      sortedArray[idx] = temp
+      idx--
+    } else {
+      elementSorted = true
+    }
+  }
+  elementSorted = false
+
+  sortedArray.push(array[0])
+  array.shift()
+  idx = sortedArray.length - 1
+  while (!elementSorted) {
+    if (sortedArray[idx] < sortedArray[idx-1]) {
+      let temp = sortedArray[idx-1]
+
+      sortedArray[idx-1] = sortedArray[idx]
+      sortedArray[idx] = temp
+      idx--
+    } else {
+      elementSorted = true
+    }
+  }
+
 
 
 
