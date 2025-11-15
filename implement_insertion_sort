@@ -1,79 +1,32 @@
 function insertionSort(array) {
   // Only change code below this line
-  let idx = 0
+  let arrayLength = array.length
   let sortedArray = []        
-  let elementSorted = false   // set to true whenever 1 element reached its sorted position
-  sortedArray.push(array[0])
-  array.shift()
+  let elementSorted = false
 
-  sortedArray.push(array[0])
-  array.shift()
-  idx = sortedArray.length - 1
-  while (!elementSorted) {
-    if (sortedArray[idx] < sortedArray[idx-1]) {
-      let temp = sortedArray[idx-1]
-
-      sortedArray[idx-1] = sortedArray[idx]
-      sortedArray[idx] = temp
-      idx--
+  for (let i=0; i<arrayLength; i++) {
+    if (i === 0) {
+      sortedArray.push(array[0])
+      array.shift()
     } else {
-      elementSorted = true
+      sortedArray.push(array[0])
+      array.shift()
+      let idx = sortedArray.length - 1
+      while (!elementSorted) {
+        if (sortedArray[idx] < sortedArray[idx-1]) {
+          let temp = sortedArray[idx-1]
+
+          sortedArray[idx-1] = sortedArray[idx]
+          sortedArray[idx] = temp
+          idx--
+        } else {
+          elementSorted = true
+        }
+      }
+      elementSorted = false
     }
   }
-  elementSorted = false
-
-  sortedArray.push(array[0])
-  array.shift()
-  idx = sortedArray.length - 1
-  while (!elementSorted) {
-    if (sortedArray[idx] < sortedArray[idx-1]) {
-      let temp = sortedArray[idx-1]
-
-      sortedArray[idx-1] = sortedArray[idx]
-      sortedArray[idx] = temp
-      idx--
-    } else {
-      elementSorted = true
-    }
-  }
-  elementSorted = false
-
-  sortedArray.push(array[0])
-  array.shift()
-  idx = sortedArray.length - 1
-  while (!elementSorted) {
-    if (sortedArray[idx] < sortedArray[idx-1]) {
-      let temp = sortedArray[idx-1]
-
-      sortedArray[idx-1] = sortedArray[idx]
-      sortedArray[idx] = temp
-      idx--
-    } else {
-      elementSorted = true
-    }
-  }
-  elementSorted = false
-
-  sortedArray.push(array[0])
-  array.shift()
-  idx = sortedArray.length - 1
-  while (!elementSorted) {
-    if (sortedArray[idx] < sortedArray[idx-1]) {
-      let temp = sortedArray[idx-1]
-
-      sortedArray[idx-1] = sortedArray[idx]
-      sortedArray[idx] = temp
-      idx--
-    } else {
-      elementSorted = true
-    }
-  }
-
-
-
 
   return sortedArray;
   // Only change code above this line
 }
-
-console.log("sortedArray: ", insertionSort([7,3,2,8,5]))
