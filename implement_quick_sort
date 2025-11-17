@@ -1,14 +1,32 @@
 function quickSort(array) {
   // Only change code below this line
   let pivot = 0
+  let lowerArray = []
+  let upperArray = []
   if (array.length === 1) {
     return array
   } else if (array.length === 2) {
     return array[0] < array[1]?array:[array[1], array[0]]
   } else {
     // find a pivot
+    if (array.length % 2 ==1) {
+      pivot = array[(array.length - 1)/ 2]
+    } else {
+      pivot = array[array.length /2]
+    }
+    console.log("pivot has been chosen as: ", pivot)
     // do rest
+    array.forEach(item=>{
+      if (item < pivot) {
+        lowerArray.push(item)
+      } else {
+        upperArray.push(item)
+      }
+    })
+    console.log("upperArray: ", upperArray, "lowerArray: ", lowerArray)
   }
   return array;
   // Only change code above this line
 }
+
+console.log(quickSort([17, 12,9, 23,28]))
