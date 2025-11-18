@@ -1,8 +1,8 @@
 function quickSort(array) {
   // Only change code below this line
   let pivot = 0
-  let lowerArray = []
-  let upperArray = []
+  let lowerArray = new Array
+  let upperArray = new Array
   if (array.length === 1) {
     return array
   } else if (array.length === 2) {
@@ -18,9 +18,12 @@ function quickSort(array) {
     // do rest
     array.forEach(item=>{
       if (item < pivot) {
+        console.log(item, " is less than ", pivot)
         lowerArray.push(item)
+        //console.log("item: ", item)
       } else {
         upperArray.push(item)
+        //console.log("upperArray is now: ", lowerArray)
       }
     })
     console.log("upperArray: ", upperArray, "lowerArray: ", lowerArray)
