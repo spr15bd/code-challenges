@@ -28,7 +28,12 @@ function quickSort(array) {
     })
     console.log("upperArray: ", upperArray, "lowerArray: ", lowerArray)
   }
-  return array;
+  if (pivot) {
+    newArray = quickSort(lowerArray) + quicksort(upperArray)
+  } else {
+    newArray = []
+  }
+  return newArray;
   // Only change code above this line
 }
 
