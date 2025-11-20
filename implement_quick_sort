@@ -3,17 +3,15 @@ function quickSort(array) {
   let pivot = 0
   let lowerArray = new Array
   let upperArray = new Array
+  let newArray = []
   if (array.length === 1) {
     return array
   } else if (array.length === 2) {
     return array[0] < array[1]?array:[array[1], array[0]]
   } else {
     // find a pivot
-    if (array.length % 2 ==1) {
-      pivot = array[(array.length - 1)/ 2]
-    } else {
-      pivot = array[array.length /2]
-    }
+    pivot = array[Math.floor(Math.random()*array.length)]
+
     console.log("pivot has been chosen as: ", pivot)
     // do rest
     array.forEach(item=>{
@@ -28,8 +26,9 @@ function quickSort(array) {
     })
     console.log("upperArray: ", upperArray, "lowerArray: ", lowerArray)
   }
+
   if (pivot) {
-    newArray = quickSort(lowerArray) + quicksort(upperArray)
+    newArray = quickSort(lowerArray) + quickSort(upperArray)
   } else {
     newArray = []
   }
