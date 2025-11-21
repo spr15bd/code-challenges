@@ -1,8 +1,8 @@
 function quickSort(array) {
   // Only change code below this line
   let pivot = 0
-  let lowerArray = new Array
-  let upperArray = new Array
+  let lowerArray = []
+  let upperArray = []
   let newArray = []
   if (array.length === 1) {
     return array
@@ -11,29 +11,21 @@ function quickSort(array) {
   } else {
     // find a pivot
     pivot = array[Math.floor(Math.random()*array.length)]
-
-    console.log("pivot has been chosen as: ", pivot)
-    // do rest
+    // partition array into two subarrays above & below pivot
     array.forEach(item=>{
       if (item < pivot) {
-        console.log(item, " is less than ", pivot)
         lowerArray.push(item)
-        //console.log("item: ", item)
       } else {
         upperArray.push(item)
-        //console.log("upperArray is now: ", lowerArray)
       }
     })
-    console.log("upperArray: ", upperArray, "lowerArray: ", lowerArray)
   }
-
+  // use recursion, unwinding this returns the final array
   if (pivot) {
-    newArray = quickSort(lowerArray) + quickSort(upperArray)
+    newArray = quickSort(lowerArray).concat(quickSort(upperArray))
   } else {
     newArray = []
   }
   return newArray;
   // Only change code above this line
 }
-
-console.log(quickSort([17, 12,9, 23,28]))
