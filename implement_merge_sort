@@ -1,5 +1,19 @@
 function mergeSort(array) {
   // Only change code below this line
-  return array;
+  let midIdx = 0
+  let arrayLength = array.length
+  if (arrayLength ===1) {
+    return array
+  }
+  if (arrayLength % 2 === 1) {
+    midIdx = (arrayLength - 1) / 2
+  } else {
+    midIdx = arrayLength / 2
+  }
+  
   // Only change code above this line
+}
+
+function merge(array1, array2) {
+  return array1.concat(array2)
 }
