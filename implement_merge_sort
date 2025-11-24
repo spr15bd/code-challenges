@@ -11,9 +11,17 @@ function mergeSort(array) {
     midIdx = arrayLength / 2
   }
   
+  let array1 = array.slice(0,midIdx)
+  let array2 = array.slice(midIdx)
+
+  mergeSort(array1, array2)
+
+  console.log(array1, "...", array2)
   // Only change code above this line
 }
 
 function merge(array1, array2) {
   return array1.concat(array2)
 }
+
+mergeSort([37,25,46,77,98,103])
