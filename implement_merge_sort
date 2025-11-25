@@ -2,21 +2,28 @@ function mergeSort(array) {
   // Only change code below this line
   let midIdx = 0
   let arrayLength = array.length
-  if (arrayLength ===1) {
-    return array
-  }
-  if (arrayLength % 2 === 1) {
-    midIdx = (arrayLength - 1) / 2
-  } else {
-    midIdx = arrayLength / 2
-  }
+  //if (arrayLength ===1) {
+  //  return array
+  //}
+
+  while (arrayLength > 1) {
+    if (arrayLength % 2 === 1) {
+      midIdx = (arrayLength - 1) / 2
+    } else {
+      midIdx = arrayLength / 2
+    }
   
-  let array1 = array.slice(0,midIdx)
-  let array2 = array.slice(midIdx)
+    let array1 = array.slice(0,midIdx)
+    console.log("array1: ", array1)
+    let array2 = array.slice(midIdx)
 
-  mergeSort(array1, array2)
+    mergeSort(array1)
 
-  console.log(array1, "...", array2)
+    //console.log(array1, "...", array2)
+  }
+
+  return array
+  
   // Only change code above this line
 }
 
@@ -24,4 +31,4 @@ function merge(array1, array2) {
   return array1.concat(array2)
 }
 
-mergeSort([37,25,46,77,98,103])
+mergeSort([37,25,46,77,98])
