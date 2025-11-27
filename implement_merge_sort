@@ -34,12 +34,6 @@ function mergeSort(array) {
       }
     }
 
-    
-    
-  
-
-
-    //console.log(array1, "...", array2)
   //}
   console.log("result of mergeSort: ", finalArray)
   
