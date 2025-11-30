@@ -4,11 +4,7 @@ function mergeSort(array) {
   let arrayLength = array.length
   let finalArray = []
   let newArray = []
-  //if (arrayLength ===1) {
-  //  return array
-  //}
-
-  //while (arrayLength > 1) {
+  
     if (arrayLength % 2 === 1) {
       midIdx = (arrayLength - 1) / 2
     } else {
@@ -21,9 +17,10 @@ function mergeSort(array) {
     console.log("array2: ", array2)
 
     if (array1.length === 1 && array2.length == 1) {
-      finalArray.push(merge(array1,array2))
+      finalArray = merge(array1,array2)
       console.log("finalArray: ", finalArray)
-    } else if (array1.length > 1) {
+    }
+    if (array1.length > 1) {
       newArray = mergeSort(array1)
     } else if (array2.length > 1) {
       newArray = mergeSort(array2)
