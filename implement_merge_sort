@@ -1,5 +1,6 @@
 function mergeSort(array) {
   // Only change code below this line
+  let initialArrayLen = array.length
   let midIdx = 0
   let arrayLength = array.length
   let finalArray = []
@@ -19,23 +20,22 @@ function mergeSort(array) {
     let array2 = array.slice(midIdx)
     console.log("array2: ", array2)
 
-    while (array1.length > 1) {
-      array1 = mergeSort(array1)
-      console.log("array1: ", array1)
-    } 
-    finalArray.push(array1[0])
-    
-    
-    while (array2.length > 1) {
-      array2 = mergeSort(array2)
-      console.log("newArray2: ", newArray2)
-    } 
-    finalArray.push(array2[0])
-    
+  if (array1.length === 1) {
+    //finalArray.push(array1)
+    finalArray.push(array1)
+  } else {
+    array1 = mergeSort(array1)
+  }
+  if (array2.length === 1) {
+     finalArray.push(array2)
+  } else {
+    array2 = mergeSort(array2)
+  }
 
-  
-    console.log("finalArray: ", finalArray)
-    //return finalArray
+  if (finalArray.length = initialArrayLen) {
+    console.log("result: ", finalArray, " of length ", initialArrayLen)
+    return finalArray
+  }
   
   // Only change code above this line
 }
