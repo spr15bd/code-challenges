@@ -23,24 +23,22 @@ function mergeSort(array) {
   let array2 = array.slice(midIdx)
   console.log("array2: ", array2)
 
-  if (array1.length === 1) {
-    finalArray = merge(array1)
-    mergeSort(array2)
-  } else {
-    mergeSort(array1)
-  }
-  mergeSort(array2)
+  
+  return merge(mergeSort(array1), mergeSort(array2))
+  
   
   // Only change code above this line
 }
 
 function merge(array1, array2) {
+  if (array1?.length < 1  || array2?.length < 1) return []
+  console.log("merge: ", array1, " and ", array2)
   let mergedArray = []
   let lowest = 0
   array1 = array1.concat(array2)
   
-  
-  array1.forEach((num, idx)=>{
+  while (array1.length > 0) {
+    array1.forEach((num, idx)=>{
     if (idx===0) {
       lowest = num
     } else {
@@ -50,7 +48,11 @@ function merge(array1, array2) {
     }
   })
   mergedArray.push(lowest)
-  console.log(mergedArray)
+  console.log("mergedArray: ", mergedArray, ", removing element: ", array1.indexOf(lowest))
+  array1.splice(array1.indexOf(lowest), 1)
+  console.log("remaining to merge ", array1)
+  }
+  
 }
 
 mergeSort([37,25,46,87,99,150])
