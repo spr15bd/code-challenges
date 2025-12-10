@@ -3,13 +3,10 @@ function mergeSort(array) {
   if (array.length === 1) {
     return array
   }
-  let initialArrayLen = array.length
+  
   let midIdx = 0
   let arrayLength = array.length
-  let finalArray = []
-  let newArray = []
-  let newArray1 = []
-  let newArray2 = []
+  
   console.log("merge sort on ", array)
   
   if (arrayLength % 2 === 1) {
@@ -23,9 +20,8 @@ function mergeSort(array) {
   let secondHalfOfArray = array.slice(midIdx)
   console.log("secondHalfOfArray: ", secondHalfOfArray)
 
-  finalArray = merge(mergeSort(firstHalfOfArray), mergeSort(secondHalfOfArray))
-  console.log("final array: ", finalArray)
-  return finalArray
+  
+  return merge(firstHalfOfArray, secondHalfOfArray)
   
   
   // Only change code above this line
