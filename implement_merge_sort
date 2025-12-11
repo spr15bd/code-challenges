@@ -43,20 +43,20 @@ function merge(array1, array2) {
   
   while (array1.length > 0) {
     array1.forEach((num, idx)=>{
-    if (idx===0) {
-      lowest = num
-    } else {
-      if (num<lowest) {
+      if (idx===0) {
         lowest = num
+      } else {
+        if (num<lowest) {
+          lowest = num
+        }
       }
-    }
-  })
-  mergedArray.push(lowest)
-  console.log("mergedArray: ", mergedArray, ", removing element: ", array1.indexOf(lowest))
-  array1.splice(array1.indexOf(lowest), 1)
-  console.log("remaining to merge ", array1)
+    })
+    mergedArray.push(lowest)
+    console.log("mergedArray: ", mergedArray, ", removing element: ", array1.indexOf(lowest))
+    array1.splice(array1.indexOf(lowest), 1)
+    console.log("remaining to merge ", array1)
   }
-  
+  return mergedArray
 }
 
 mergeSort([37,25,46,87,99,150])
