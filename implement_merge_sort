@@ -1,13 +1,10 @@
 function mergeSort(array) {
-  // Only change code below this line
   if (array.length === 1) {
     return array
   }
   
   let midIdx = 0
   let arrayLength = array.length
-  
-  console.log("merge sort on ", array)
   
   if (arrayLength % 2 === 1) {
     midIdx = (arrayLength - 1) / 2
@@ -16,15 +13,9 @@ function mergeSort(array) {
   }
   
   let firstHalfOfArray = array.slice(0,midIdx)
-  console.log("firstHalfOfArray: ", firstHalfOfArray)
   let secondHalfOfArray = array.slice(midIdx)
-  console.log("secondHalfOfArray: ", secondHalfOfArray)
-
   
   return merge(firstHalfOfArray, secondHalfOfArray)
-  
-  
-  // Only change code above this line
 }
 
 function merge(array1, array2) {
@@ -36,7 +27,6 @@ function merge(array1, array2) {
     return array1
   }
 
-  console.log("merge: ", array1, " and ", array2)
   let mergedArray = []
   let lowest = 0
   array1 = array1.concat(array2)
@@ -52,9 +42,7 @@ function merge(array1, array2) {
       }
     })
     mergedArray.push(lowest)
-    console.log("mergedArray: ", mergedArray, ", removing element: ", array1.indexOf(lowest))
     array1.splice(array1.indexOf(lowest), 1)
-    console.log("remaining to merge ", array1)
   }
   return mergedArray
 }
