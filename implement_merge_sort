@@ -15,7 +15,7 @@ function mergeSort(array) {
   let firstHalfOfArray = array.slice(0,midIdx)
   let secondHalfOfArray = array.slice(midIdx)
   
-  return merge(firstHalfOfArray, secondHalfOfArray)
+  return merge(mergeSort(firstHalfOfArray), mergeSort(secondHalfOfArray))
 }
 
 function merge(array1, array2) {
@@ -47,4 +47,4 @@ function merge(array1, array2) {
   return mergedArray
 }
 
-mergeSort([37,25,46,87,99,150])
+mergeSort([37,25,46,87,99,15])
