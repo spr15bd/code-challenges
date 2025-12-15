@@ -5,6 +5,7 @@ function binarySearch(searchList, value) {
   middleValueIdx = Math.floor(searchList.length / 2)
   console.log("middleValue: ", searchList[middleValueIdx])
 
+  if (searchList[middleValueIdx]) return true
   return arrayPath;
 }
 
