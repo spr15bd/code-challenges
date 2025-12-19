@@ -6,12 +6,18 @@ function binarySearch(searchList, target) {
   //arrayPath.push(searchList[middleValueIdx])
   console.log("middleValue: ", searchList[middleValueIdx])
 
+  let res = []
   if (searchList[middleValueIdx] === target) {
-    return arrayPath.push(searchList[middleValueIdx])
+    res = arrayPath.push(searchList[middleValueIdx])
+    console.log("returned: ", res)
+    return res
   } else if (searchList[middleValueIdx] < target) {
-    return arrayPath.push(binarySearch(searchList.slice(middleValueIdx), target))
+    res = arrayPath.push(binarySearch(searchList.slice(middleValueIdx), target))
+    console.log("returned: ", res)
+    return res
   } else if (searchList[middleValueIdx] > target) {
-    return arrayPath.push(binarySearch(searchList.slice(0, middleValueIdx), target))
+    res = arrayPath.push(binarySearch(searchList.slice(0, middleValueIdx), target))
+    return res
   }
 }
 
