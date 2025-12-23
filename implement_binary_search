@@ -20,15 +20,25 @@ function binarySearch(searchList, target) {
     if (searchList.length === 2 && searchList.includes(target)) {
       return [searchList[middleValueIdx]].concat([target])
     }
-    res = [searchList[middleValueIdx]].concat(binarySearch(searchList.slice(middleValueIdx,searchList.length-1), target))
+    let restOfArray = binarySearch(searchList.slice(middleValueIdx,searchList.length-1), target)
+    if (!restOfArray) {
+      return "Value Not Found"
+    }
+    res = [searchList[middleValueIdx]].concat(restOfArray)
     return res
   } else if (searchList[middleValueIdx] > target) {
     console.log("higher!")
     if (searchList.length === 2 && searchList.includes(target)) {
       return [searchList[middleValueIdx]].concat([target])
     }
-    res = [searchList[middleValueIdx]].concat(binarySearch(searchList.slice(0, middleValueIdx), target))
+    let restOfArray = binarySearch(searchList.slice(0, middleValueIdx), target)
+    res = [searchList[middleValueIdx]].concat(restOfArray)
+    if (!restOfArray) {
+      return -1
+    }
     console.log("now ", res)
+
+    if (res.includes('Value Not Found')) return 'Value Not Found'
     return res
   }
 }
