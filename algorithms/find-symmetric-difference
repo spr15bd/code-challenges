@@ -1,0 +1,33 @@
+function sym(...args) {
+  let currentString = []
+  let finalString = []
+  let resultArray = []
+  args.forEach ((i, j) => {
+    args[j]=[...new Set(args[j])]
+    if (j==0) {
+      finalString = args[0]
+    }
+    if (j>0) {
+      finalString = args[j].concat(finalString)
+      finalString = finalString.sort()
+      resultArray = []
+      
+      // now that the current string of numbers is ordered, remove any which occur more than once; if not add to the resultArray
+      for (let i=0; i<finalString.length; i++) {
+        if (i === finalString.length - 1) {
+          resultArray.push(finalString[i])
+        }
+        if (i < finalString.length-1 && finalString[i] === finalString[i+1]) {
+          i++
+        } else if (i < finalString.length-1 && !resultArray.includes(finalString[i])) {
+          resultArray.push(finalString[i])
+        }
+      }
+    }
+    if (j>0) currentString = resultArray
+  })
+  
+  return resultArray
+}
+
+sym([1, 2, 5], [2, 3, 5], [3, 4, 5])
