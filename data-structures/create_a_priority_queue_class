@@ -1,0 +1,23 @@
+function PriorityQueue () {
+  this.collection = [];
+  this.printCollection = function() {
+    console.log(this.collection);
+  };
+  // Only change code below this line
+  this.enqueue = function() {
+
+  }
+  this.dequeue = function() {
+    
+  }
+  this.size = function() {
+    return this.collection.length
+  }
+  this.front = function() {
+    return this.collection[0]
+  }
+  this.isEmpty = function() {
+    return this.collection.length === 0
+  }
+  // Only change code above this line
+}
