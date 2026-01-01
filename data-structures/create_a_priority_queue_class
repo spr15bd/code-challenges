@@ -4,7 +4,7 @@ function PriorityQueue () {
     console.log(this.collection);
   };
   // Only change code below this line
-  this.enqueue = function() {
+  this.enqueue = function([name,x]) {
 
   }
   this.dequeue = function() {
@@ -14,7 +14,7 @@ function PriorityQueue () {
     return this.collection.length
   }
   this.front = function() {
-    return this.collection[0]
+    return this.collection[0]['name']
   }
   this.isEmpty = function() {
     return this.collection.length === 0
