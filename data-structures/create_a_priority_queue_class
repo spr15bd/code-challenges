@@ -1,20 +1,20 @@
 function PriorityQueue () {
-  this.collection = [];
+  this.collection = [['human', 1], ['kitten', 2], ['dog', 2], ['rabbit', 2]];
   this.printCollection = function() {
     console.log(this.collection);
   };
   // Only change code below this line
-  this.enqueue = function([name,x]) {
-
+  this.enqueue = function(item) {
+    this.collection.splice(item[1], )
   }
   this.dequeue = function() {
-    
+    return this.collection.pop()[0][0]
   }
   this.size = function() {
     return this.collection.length
   }
   this.front = function() {
-    return this.collection[0]['name']
+    return this.collection[0][0]
   }
   this.isEmpty = function() {
     return this.collection.length === 0
