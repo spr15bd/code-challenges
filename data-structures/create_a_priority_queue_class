@@ -5,7 +5,7 @@ function PriorityQueue () {
   };
   // Only change code below this line
   this.enqueue = function(item) {
-    this.collection.splice(item[1], )
+    this.collection.splice(item[1], 0, item[0])
   }
   this.dequeue = function() {
     return this.collection.pop()[0][0]
