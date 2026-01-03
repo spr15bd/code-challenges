@@ -1,14 +1,16 @@
 function PriorityQueue () {
-  this.collection = [['human', 1], ['kitten', 2], ['dog', 2], ['rabbit', 2]];
+  this.collection = [['human', 1], ['kitten', 2], ['dog', 2], ['rabbit', 2]]
+  
   this.printCollection = function() {
-    console.log(this.collection);
-  };
+    console.log(this.collection)
+  }
   // Only change code below this line
   this.enqueue = function(item) {
-    this.collection.splice(item[1], 0, item[0])
+    this.collection.splice(item[1] - 1, 0, [item[0], item[1]])
   }
   this.dequeue = function() {
-    return this.collection.pop()[0][0]
+    console.log("collection ", this.collection[0])
+    return this.collection.pop()[0]
   }
   this.size = function() {
     return this.collection.length
@@ -21,3 +23,7 @@ function PriorityQueue () {
   }
   // Only change code above this line
 }
+
+let pq = new PriorityQueue();
+pq.enqueue(['man', 6])
+pq.printCollection()
