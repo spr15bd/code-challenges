@@ -9,7 +9,9 @@ function PriorityQueue () {
     this.collection.splice(item[1] - 1, 0, [item[0], item[1]])
   }
   this.dequeue = function() {
-    console.log("collection ", this.collection[0])
+    console.log("collection before sort: ", this.collection)
+    this.collection.sort(compare)
+    console.log("collection after sort: ", this.collection)
     return this.collection.pop()[0]
   }
   this.size = function() {
@@ -21,9 +23,19 @@ function PriorityQueue () {
   this.isEmpty = function() {
     return this.collection.length === 0
   }
+  function compare( a, b ) {
+  if ( a[1] < b[1] ){
+    return -1;
+  }
+  if ( a[1] > b[1] ){
+    return 1;
+  }
+  return 0;
+}
   // Only change code above this line
 }
 
 let pq = new PriorityQueue();
 pq.enqueue(['man', 6])
+console.log(pq.dequeue())
 pq.printCollection()
