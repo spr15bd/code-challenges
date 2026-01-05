@@ -1,6 +1,4 @@
 function PriorityQueue () {
-  this.collection = [['human', 1], ['kitten', 2], ['dog', 2], ['rabbit', 2]]
-  
   this.printCollection = function() {
     console.log(this.collection)
   }
@@ -24,18 +22,24 @@ function PriorityQueue () {
     return this.collection.length === 0
   }
   function compare( a, b ) {
-  if ( a[1] < b[1] ){
-    return -1;
+    if ( a[1] < b[1] ){
+      return -1;
+    }
+    if ( a[1] > b[1] ){
+      return 1;
+    }
+    return 0;
   }
-  if ( a[1] > b[1] ){
-    return 1;
-  }
-  return 0;
-}
   // Only change code above this line
 }
 
+this.collection = []
+this.collection.push(['human', 1])
+this.collection.push(['kitten', 2])
+this.collection.push(['dog', 2]) 
+this.collection.push(['rabbit', 2])
 let pq = new PriorityQueue();
-pq.enqueue(['man', 6])
+pq.enqueue(['human', 1])
+pq.enqueue(['giraffe', 6])
 console.log(pq.dequeue())
 pq.printCollection()
