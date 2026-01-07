@@ -5,14 +5,16 @@ function PriorityQueue () {
   // Only change code below this line
   this.collection = []
   this.enqueue = function(item) {
-    this.collection.splice(item[1] - 1, 0, [item[0], item[1]])
+    //this.collection.splice(item[1] - 1, 0, [item[0], item[1]])
+    this.collection.push([item[0], item[1]])
   }
   this.dequeue = function() {
     console.log("collection before sort: ", this.collection)
     // sort items first by priority then by FIFO
     this.collection.sort(this.compare)
     console.log("collection after sort: ", this.collection)
-    return this.collection.pop()[0]
+    console.log("Removed ")
+    return this.collection.shift()[0]
   }
   this.size = function() {
     return this.collection.length
