@@ -1,25 +1,19 @@
 function PriorityQueue () {
-  this.printCollection = function() {
-    console.log(this.collection)
-  }
   // Only change code below this line
   this.collection = []
   this.enqueue = function(item) {
-    //this.collection.splice(item[1] - 1, 0, [item[0], item[1]])
     this.collection.push([item[0], item[1]])
   }
   this.dequeue = function() {
-    console.log("collection before sort: ", this.collection)
     // sort items first by priority then by FIFO
     this.collection.sort(this.compare)
-    console.log("collection after sort: ", this.collection)
-    console.log("Removed ")
     return this.collection.shift()[0]
   }
   this.size = function() {
     return this.collection.length
   }
   this.front = function() {
+    this.collection.sort(this.compare)
     return this.collection[0][0]
   }
   this.isEmpty = function() {
@@ -36,13 +30,3 @@ function PriorityQueue () {
   }
   // Only change code above this line
 }
-
-
-let pq = new PriorityQueue();
-pq.enqueue(['giraffe', 6])
-pq.enqueue(['human', 1])
-pq.enqueue(['kitten', 2])
-pq.enqueue(['dog', 2])
-pq.enqueue(['rabbit', 2])
-console.log(pq.dequeue())
-pq.printCollection()
