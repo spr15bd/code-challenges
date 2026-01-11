@@ -18,13 +18,15 @@ class CircularQueue {
 
   enqueue(item) {
     // Only change code below this line
-
+    if (this.write < this.read) {
+      this.queue.splice(1, this.write, item)
+    }
     // Only change code above this line
   }
 
   dequeue() {
     // Only change code below this line
-
+    
     // Only change code above this line
   }
 }
