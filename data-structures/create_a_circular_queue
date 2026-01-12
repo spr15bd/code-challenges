@@ -26,7 +26,12 @@ class CircularQueue {
 
   dequeue() {
     // Only change code below this line
-    
+    let itemToReturn = this.queue.pop()
+    if (itemToReturn) {
+      return itemToReturn
+    } else {
+      return null
+    }
     // Only change code above this line
   }
 }
