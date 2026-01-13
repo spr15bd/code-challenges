@@ -1,32 +1,45 @@
-function PriorityQueue () {
-  // Only change code below this line
-  this.collection = []
-  this.enqueue = function(item) {
-    this.collection.push([item[0], item[1]])
-  }
-  this.dequeue = function() {
-    // sort items first by priority then by FIFO
-    this.collection.sort(this.compare)
-    return this.collection.shift()[0]
-  }
-  this.size = function() {
-    return this.collection.length
-  }
-  this.front = function() {
-    this.collection.sort(this.compare)
-    return this.collection[0][0]
-  }
-  this.isEmpty = function() {
-    return this.collection.length === 0
-  }
-  this.compare = function( a, b ) {
-    if ( a[1] < b[1] ){
-      return -1;
+class CircularQueue {
+  constructor(size) {
+
+    this.queue = [];
+    this.read = 0;
+    this.write = 0;
+    this.max = size - 1;
+
+    while (size > 0) {
+      this.queue.push(null);
+      size--;
     }
-    if ( a[1] > b[1] ){
-      return 1;
-    }
-    return 0;
   }
-  // Only change code above this line
+
+  print() {
+    return this.queue;
+  }
+
+  enqueue(item) {
+    // Only change code below this line
+    if (this.write < this.read) {
+      this.queue.splice(1, this.write, item)
+      this.write++
+      if (this.write > this.queue.length) {
+        this.write = 0
+      }
+    }
+    // Only change code above this line
+  }
+
+  dequeue() {
+    // Only change code below this line
+    let itemToReturn = this.queue.shift()
+    if (itemToReturn) {
+      console.log("dequeued ", itemToReturn)
+      return itemToReturn
+    } else {
+      return null
+    }
+    // Only change code above this line
+  }
 }
+
+let c = new CircularQueue(3)
+console.log("c is ", c)
