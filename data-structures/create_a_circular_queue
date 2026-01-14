@@ -18,16 +18,21 @@ class CircularQueue {
 
   enqueue(item) {
     // Only change code below this line
-    if (this.write < this.read) {
-      this.queue.splice(1, this.write, item)
+    if (this.write <= this.read) {
+      this.queue[this.write] = item
+      this.write++
+      if (this.write > this.queue.length) {
+        this.write = 0
+      }
     }
     // Only change code above this line
   }
 
   dequeue() {
     // Only change code below this line
-    let itemToReturn = this.queue.pop()
+    let itemToReturn = this.queue.shift()
     if (itemToReturn) {
+      console.log("dequeued ", itemToReturn)
       return itemToReturn
     } else {
       return null
@@ -35,3 +40,10 @@ class CircularQueue {
     // Only change code above this line
   }
 }
+
+let c = new CircularQueue(3)
+console.log("c before is ", c)
+c.enqueue('h')
+c.enqueue('v')
+c.enqueue('w')
+console.log("c is ", c)
