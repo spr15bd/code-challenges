@@ -44,9 +44,12 @@ class CircularQueue {
 
   dequeue() {
     // Only change code below this line
-    let itemToReturn = this.queue.shift()
-    if (itemToReturn) {
+    let itemToReturn = null
+    if (this.read < this.write) {
+      itemToReturn = this.queue[this.read]
+      this.queue[this.read] = null
       console.log("dequeued ", itemToReturn)
+      this.read++
       return itemToReturn
     } else {
       return null
@@ -56,8 +59,10 @@ class CircularQueue {
 }
 
 let c = new CircularQueue(3)
-console.log("c before is ", c)
+console.log("c before enqueuing is ", c)
 c.enqueue('h')
 c.enqueue('v')
 c.enqueue('w')
-console.log("c is ", c)
+console.log("c is now ", c)
+c.dequeue()
+console.log("c after dequeing is ", c)
