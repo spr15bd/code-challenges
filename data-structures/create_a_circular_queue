@@ -18,11 +18,7 @@ class CircularQueue {
 
   enqueue(item) {
     // Only change code below this line
-    console.log("Attempting to enqueue ", item)
-    
-    console.log("length before enqueue ", this.queue.length)
     this.queue[this.write] = item
-    console.log("length after enqueue ", this.queue.length)
       
     if (this.queue[this.write] === item) {
       this.write++
@@ -36,9 +32,6 @@ class CircularQueue {
       }
       return null
     }
-      
-      
-    
     // Only change code above this line
   }
 
@@ -48,7 +41,6 @@ class CircularQueue {
     if (this.read < this.write) {
       itemToReturn = this.queue[this.read]
       this.queue[this.read] = null
-      console.log("dequeued ", itemToReturn)
       this.read++
       return itemToReturn
     } else {
