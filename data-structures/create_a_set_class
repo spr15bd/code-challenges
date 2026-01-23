@@ -17,12 +17,25 @@ class Set {
 
   // Only change code below this line
   add(element) {
-    if (!this.has(element)) {
-      this.push(element)
+    if (!this.dictionary.has(element)) {
+      this.dictionary.push(element)
       return true
     } else {
       return false
     }
+  }
+
+  remove(element) {
+    if (this.dictionary.has(element)) {
+      let idx = this.dictionary.indexOf(element)
+      if (idx != -1) {
+        this.splice(1, idx)
+      }
+    }
+  }
+
+  size() {
+    return this.dictionary.length
   }
   // Only change code above this line
 }
