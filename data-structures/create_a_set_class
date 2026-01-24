@@ -17,8 +17,9 @@ class Set {
 
   // Only change code below this line
   add(element) {
-    if (!this.dictionary.has(element)) {
-      this.dictionary.push(element)
+    if (!this.has(element)) {
+      this.dictionary[element] = element
+      this.length = this.dictionary.length
       return true
     } else {
       return false
@@ -26,16 +27,20 @@ class Set {
   }
 
   remove(element) {
-    if (this.dictionary.has(element)) {
-      let idx = this.dictionary.indexOf(element)
-      if (idx != -1) {
-        this.splice(1, idx)
-      }
+    if (this.has(element)) {
+      delete this.dictionary[element]
     }
   }
 
   size() {
-    return this.dictionary.length
+    return Object.keys(this.dictionary).length
   }
   // Only change code above this line
 }
+
+let set = new Set()
+set.add(1)
+set.add(5)
+set.add(5)
+set.remove(1)
+console.log("size is ", set.size())
