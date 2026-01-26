@@ -37,6 +37,15 @@ class Set {
     return this.length;
   }
   // Only change code below this line
-
+  union(setA, setB) {
+    setA.forEach(item=>{
+      console.log(item)
+    })
+  }
   // Only change code above this line
 }
+
+let set1 = new Set()
+set1.add('a')
+set1.add('b')
+set1.add('c')
