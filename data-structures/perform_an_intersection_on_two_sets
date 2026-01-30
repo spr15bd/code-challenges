@@ -49,6 +49,27 @@ class Set {
     return newSet;
   }
   // Only change code below this line
-  
+  intersection(set) {
+    let setA = Object.values(this.dictionary)
+    let setB = Object.values(set.dictionary)
+    let setC = []
+    let setD = new Set
+
+    setA.forEach(item => {
+      if (setB.includes(item)) {
+        setC.push(item)
+      }
+    })
+
+    setB.forEach(item => {
+      if (setA.includes(item) && !setC.includes(item)) {
+        setC.push(item)
+      }
+    })
+    setC.forEach(item => {
+      setD.add(item)
+    })
+    
+  }
   // Only change code above this line
 }
