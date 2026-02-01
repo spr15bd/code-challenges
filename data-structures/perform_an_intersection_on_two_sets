@@ -14,7 +14,6 @@ class Set {
   }
   // This method will add an element to the set
   add(element) {
-    console.log("Adding ", element)
     if (!this.has(element)) {
       this.dictionary[element] = element;
       this.length++;
@@ -51,31 +50,27 @@ class Set {
   }
   // Only change code below this line
   intersection(set) {
-    console.log("Performing intersection")
     let setA = Object.values(this.dictionary)
     let setB = Object.values(set.dictionary)
-    console.log("setA: ", setA)
-    console.log("setB: ", setB)
-    let setC = []
-    let setD = new Set
+    let setC = []       // holds the result of operations on sets A & B
+    let setD = new Set  // used to convert array C to final set
 
     setA.forEach(item => {
       if (setB.includes(item)) {
         setC.push(item)
       }
     })
-    console.log("Set C is now: ", setC)
 
     setB.forEach(item => {
       if (setA.includes(item) && !setC.includes(item)) {
         setC.push(item)
       }
     })
-    console.log("Set C is now: ", setC)
+    
     setC.forEach(item => {
       setD.add(item)
     })
-    
+    return setD
   }
   // Only change code above this line
 }
