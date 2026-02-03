@@ -71,6 +71,16 @@ class Set {
     return newSet;
   }
   // Only change code below this line
-  
+  difference(set) {
+    console.log(set)
+  }
   // Only change code above this line
 }
+
+let setA = new Set()
+setA.add('a'); setA.add('b'); setA.add('c')
+
+let setB = new Set()
+setA.add('a'); setA.add('b'); setA.add('d'); setA.add('e')
+
+setA.difference(setB)
