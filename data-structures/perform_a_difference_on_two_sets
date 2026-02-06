@@ -75,12 +75,10 @@ class Set {
     let set1 = set
     let set2 = this
     let differenceSet = new Set()
-    console.log("set1 ", set1)
-    console.log("set2 ", set2)
 
-    set1.values().forEach(item=>{
-      if (!set2.values().includes(item)) {
-        differenceSet.add(item)
+    set2.values().forEach(value=>{
+      if (!set1.values().includes(value)) {
+        differenceSet.add(value)
       }
     })
     return differenceSet
@@ -90,9 +88,6 @@ class Set {
 
 let setA = new Set()
 setA.add('a'); setA.add('b'); setA.add('c')
-console.log("setA: ", setA)
 
 let setB = new Set()
 setB.add('a'); setB.add('b'); setB.add('d'); setB.add('e')
-
-console.log("diff is: ", setB.difference(setA))
