@@ -82,6 +82,18 @@ class Set {
 
     return newSet;
   }
+
+  isSubsetOf(set) {
+    let isSubset = true
+    this.values().forEach(value => {
+      console.log("values: ", value)
+
+      if (!set.includes(value))   {
+        isSubset = false
+      }    
+    })
+    return isSubset
+  }
   // Only change code below this line
   
   // Only change code above this line
