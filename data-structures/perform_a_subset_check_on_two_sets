@@ -82,14 +82,14 @@ class Set {
 
     return newSet;
   }
-
   // Only change code below this line
   isSubsetOf(set) {
     let isSubset = true
+    console.log("this is: ", this.values())
     this.values().forEach(value => {
       console.log("values: ", value)
 
-      if (!set.includes(value))   {
+      if (!set.has(value))   {
         isSubset = false
       }    
     })
@@ -97,3 +97,10 @@ class Set {
   }
   // Only change code above this line
 }
+
+let A = new Set()
+let B = new Set()
+A.add('a');A.add('b')
+B.add('a');B.add('b');B.add('c');B.add('d')
+console.log("A is ", A, ", B is ", B)
+console.log("is ab a subset of abcd? ", A.isSubsetOf(B))
