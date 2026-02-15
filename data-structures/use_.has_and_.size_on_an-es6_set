@@ -1,0 +1,11 @@
+function checkSet(arrToBeSet, checkValue){
+   // Only change code below this line
+   let set = new Set([arrToBeSet])
+   console.log(set)
+   let hasItem = set.has(checkValue)
+   let howBig = set.size
+   console.log([hasItem, howBig])
+   return [hasItem, howBig]
+   // Only change code above this line
+}
+checkSet([4, 5, 6], 3)
