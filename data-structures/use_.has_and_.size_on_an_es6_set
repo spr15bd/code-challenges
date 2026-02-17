@@ -1,6 +1,5 @@
 function checkSet(arrToBeSet, checkValue){
    // Only change code below this line
-   let set = new Set([arrToBeSet])
    //console.log(set)
    let hasItem = set.has(checkValue)
    let howBig = set.size
