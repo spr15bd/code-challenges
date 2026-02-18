@@ -1,10 +1,7 @@
 function checkSet(arrToBeSet, checkValue){
    // Only change code below this line
-   //console.log(set)
-   let hasItem = set.has(checkValue)
-   let howBig = set.size
-   //console.log("result: ", [hasItem, howBig])
-   return [hasItem, howBig]
+   let set = new Set(arrToBeSet)
+   
+   return [set.has(checkValue), set.size]
    // Only change code above this line
 }
-console.log(checkSet([4, 5, 6], 4))
