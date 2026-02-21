@@ -1,6 +1,8 @@
 var Map = function() {
   this.collection = {};
   // Only change code below this line
-  
+  function add(item) {
+    this.collection.add(item)
+  }
   // Only change code above this line
 };
