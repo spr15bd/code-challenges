@@ -4,5 +4,21 @@ var Map = function() {
   this.add = function(key, value) {
     this.collection[key] = value
   }
+
+  this.remove = function(key) {
+    this.collection.delete(key)
+  }
+
+  this.get = function(key) {
+    return this.collection[key]
+  }
+
+  this.has = function(key) {
+    if (this.collection[key]) {
+      return true
+    } else {
+      return false
+    }
+  }
   // Only change code above this line
-};
+}
