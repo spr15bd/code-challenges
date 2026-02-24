@@ -20,5 +20,13 @@ var Map = function() {
       return false
     }
   }
+
+  this.values = function(collection) {
+    return collection.values()
+  }
+
+  this.clear = function() {
+    this.collection = {}
+  }
   // Only change code above this line
 }
