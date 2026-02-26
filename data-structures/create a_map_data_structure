@@ -26,7 +26,7 @@ var Map = function() {
   }
 
   this.clear = function() {
-    this.collection.clear()
+    this.collection = {}
   }
 
   this.size = function() {
@@ -34,3 +34,13 @@ var Map = function() {
   }
   // Only change code above this line
 }
+
+let m = new Map()
+console.log("m is ", m)
+m.add(1,"citrus")
+m.add(2,"apple")
+m.add(3,"banana")
+console.log("m is ", m)
+console.log("size is ", m.size())
+m.clear()
+console.log("m is ", m)
