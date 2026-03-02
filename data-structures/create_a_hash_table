@@ -14,7 +14,9 @@ var HashTable = function() {
     this.collection[key] = value
   }
   remove = function(key) {
-    delete this.collection[key]
+    if (this.collection.hasKey(key)) {
+      delete this.collection[key]
+    }
   }
   lookup = function(key) {
     if (this.collection[key]) {
@@ -25,3 +27,8 @@ var HashTable = function() {
   }
   // Only change code above this line
 };
+
+
+
+let ht = new HashTable()
+ht.add(1,"orange")
