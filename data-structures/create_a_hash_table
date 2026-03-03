@@ -10,15 +10,15 @@ var hash = string => {
 var HashTable = function() {
   this.collection = {};
   // Only change code below this line
-  add = function(key, value) {
+  this.add = function(key, value) {
     this.collection[key] = value
   }
-  remove = function(key) {
-    if (this.collection.hasKey(key)) {
+  this.remove = function(key) {
+    if (this.collection[key]) {
       delete this.collection[key]
     }
   }
-  lookup = function(key) {
+  this.lookup = function(key) {
     if (this.collection[key]) {
       return this.collection[key]
     } else {
