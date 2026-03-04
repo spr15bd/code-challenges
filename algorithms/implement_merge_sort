@@ -1,0 +1,50 @@
+function mergeSort(array) {
+  if (array.length === 1) {
+    return array
+  }
+  
+  let midIdx = 0
+  let arrayLength = array.length
+  
+  if (arrayLength % 2 === 1) {
+    midIdx = (arrayLength - 1) / 2
+  } else {
+    midIdx = arrayLength / 2
+  }
+  
+  let firstHalfOfArray = array.slice(0,midIdx)
+  let secondHalfOfArray = array.slice(midIdx)
+  
+  return merge(mergeSort(firstHalfOfArray), mergeSort(secondHalfOfArray))
+}
+
+function merge(array1, array2) {
+  if (!array1?.length && !array2?.length) {
+    return []
+  } else if (!array1?.length) {
+    return array2
+  } else if (!array2?.length) {
+    return array1
+  }
+
+  let mergedArray = []
+  let lowest = 0
+  array1 = array1.concat(array2)
+  
+  while (array1.length > 0) {
+    array1.forEach((num, idx)=>{
+      if (idx===0) {
+        lowest = num
+      } else {
+        if (num<lowest) {
+          lowest = num
+        }
+      }
+    })
+    mergedArray.push(lowest)
+    array1.splice(array1.indexOf(lowest), 1)
+  }
+  return mergedArray
+}
+
+mergeSort([37,25,46,87,99,15])
