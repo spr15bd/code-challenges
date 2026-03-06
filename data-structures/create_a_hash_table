@@ -11,24 +11,20 @@ var HashTable = function() {
   this.collection = {};
   // Only change code below this line
   this.add = function(key, value) {
-    this.collection[key] = value
+    let hashedKey = hash(key)
+    this.collection[hashedKey] = value
   }
   this.remove = function(key) {
-    if (this.collection[key]) {
-      delete this.collection[key]
+    if (this.collection[hash(key)]) {
+      delete this.collection[hash(key)]
     }
   }
   this.lookup = function(key) {
-    if (this.collection[key]) {
-      return this.collection[key]
+    if (this.collection[hash(key)]) {
+      return this.collection[hash(key)]
     } else {
       return null
     }
   }
   // Only change code above this line
 };
-
-
-
-let ht = new HashTable()
-ht.add(1,"orange")
