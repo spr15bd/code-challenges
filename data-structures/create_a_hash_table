@@ -11,19 +11,27 @@ var HashTable = function() {
   this.collection = {};
   // Only change code below this line
   this.add = function(key, value) {
-    this.collection.push(hash(key), value)
+    this.collection[hash(key)] = this.collection[hash(key)] || {}
+    this.collection[hash(key)][key] = value
   }
   this.remove = function(key) {
-    if (this.collection[hash(key)]) {
+    if (this.collection[hash(key)][key]) {
+      delete this.collection[hash(key)][key]
       delete this.collection[hash(key)]
     }
   }
   this.lookup = function(key) {
-    if (this.collection[hash(key)]) {
-      return this.collection[hash(key)]
+    if (this.collection[hash(key)][key]) {
+      return this.collection[hash(key)][key]
     } else {
       return null
     }
   }
   // Only change code above this line
 };
+
+let ht = new HashTable()
+ht.add("k1", "this is value of k1")
+console.log("ht is ", ht)
+ht.add("k1", "this is new value of k1")
+console.log("ht is now ", ht)
