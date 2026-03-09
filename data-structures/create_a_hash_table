@@ -17,7 +17,7 @@ var HashTable = function() {
   this.remove = function(key) {
     if (this.collection[hash(key)][key]) {
       delete this.collection[hash(key)][key]
-      delete this.collection[hash(key)]
+      //delete this.collection[hash(key)]
     }
   }
   this.lookup = function(key) {
@@ -34,4 +34,6 @@ let ht = new HashTable()
 ht.add("k1", "this is value of k1")
 console.log("ht is ", ht)
 ht.add("k1", "this is new value of k1")
-console.log("ht is now ", ht)
+console.log("ht is now ", ht, " and key of this is ", ht.collection["156"])
+ht.remove("k1")
+console.log("after remove, ht is now ", ht)
