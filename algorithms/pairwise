@@ -1,0 +1,16 @@
+function pairwise(arr, arg) {
+  let finalSumOfIndices = 0
+  let numUsed = []
+  arr.forEach((num,idx)=>{
+    for (let x=idx+1; x<arr.length; x++) {
+      if (num + arr[x] === arg && !numUsed[idx] && !numUsed[x]) {
+        finalSumOfIndices += idx + x
+        numUsed[idx] = true
+        numUsed[x] = true
+      }
+    }
+  })
+  return finalSumOfIndices;
+}
+
+pairwise([0, 0, 0, 0, 1, 1], 1)
