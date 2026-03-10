@@ -1,0 +1,16 @@
+function selectionSort(array) {
+  // Only change code below this line
+  let currentSortedArray = []
+  while (array.length > 0) {
+    let minValue = Math.min(...array)
+    let minValueIdx = array.indexOf(minValue)
+    let temp = array[minValueIdx]
+    array[minValueIdx] = array[0]
+    array[0] = temp
+    currentSortedArray.push(array[0])
+    array.splice(0,1)
+  }
+    
+  return currentSortedArray;
+  // Only change code above this line
+}
