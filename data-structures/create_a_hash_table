@@ -15,10 +15,11 @@ var HashTable = function() {
     this.collection[hash(key)][key] = value
   }
   this.remove = function(key) {
-    if (this.collection[hash(key)][key]) {
-      delete this.collection[hash(key)][key]
-      if (Object.keys(this.collection[hash(key)]).length === 0) {
-        delete this.collection[hash(key)]
+    let hashed = hash(key)
+    if (this.collection[hashed][key]) {
+      delete this.collection[hashed][key]
+      if (Object.keys(this.collection[hashed]).length === 0) {
+        delete this.collection[hashed]
       }
     }
   }
