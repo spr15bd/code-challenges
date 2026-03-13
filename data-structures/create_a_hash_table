@@ -11,8 +11,9 @@ var HashTable = function() {
   this.collection = {};
   // Only change code below this line
   this.add = function(key, value) {
-    this.collection[hash(key)] = this.collection[hash(key)] || {}
-    this.collection[hash(key)][key] = value
+    let hashed = hash(key)
+    this.collection[hashed] = this.collection[hashed] || {}
+    this.collection[hashed][key] = value
   }
   this.remove = function(key) {
     let hashed = hash(key)
@@ -24,8 +25,9 @@ var HashTable = function() {
     }
   }
   this.lookup = function(key) {
-    if (this.collection[hash(key)][key]) {
-      return this.collection[hash(key)][key]
+    let hashed = hash(key)
+    if (this.collection[hashed][key]) {
+      return this.collection[hashed][key]
     } else {
       return null
     }
@@ -34,9 +36,3 @@ var HashTable = function() {
 };
 
 let ht = new HashTable()
-ht.add("k1", "this is value of k1")
-console.log("ht is ", ht)
-ht.add("k1", "this is new value of k1")
-console.log("ht is now ", ht)
-ht.remove("k1")
-console.log("after remove, ht is now ", ht)
