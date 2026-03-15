@@ -7,3 +7,7 @@ var Puppy = new Node('Puppy');
 
 Kitten.next = Puppy;
 // Only change code below this line
+var Cat = new Node('Cat');
+var Dog = new Node('Dog');
+Puppy.next = Cat
+Cat.next = Dog
