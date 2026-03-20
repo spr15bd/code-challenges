@@ -17,10 +17,14 @@ function LinkedList() {
 
   this.add = function(element){
     // Only change code below this line
-    let newItem = new Node(element)
+    let newNode = new Node(element)
+    let currentNode = null
     if (this.length === 0) {
-      this.head = newItem
-    } 
+      head = newNode
+    } else {
+      currentNode = newNode
+      currentNode.next = newItem
+    }
     this.length++
     // Only change code above this line
   };
