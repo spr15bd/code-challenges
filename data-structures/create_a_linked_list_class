@@ -19,6 +19,7 @@ function LinkedList() {
     // Only change code below this line
     let newNode = new Node(element)
     let currentNode = null
+
     if (this.length === 0) {
       head = newNode
     } else {
@@ -29,3 +30,8 @@ function LinkedList() {
     // Only change code above this line
   };
 }
+
+let ll = new LinkedList()
+ll.add("1", "mars")
+ll.add("2", "mercury")
+console.log("ll is ", ll)
