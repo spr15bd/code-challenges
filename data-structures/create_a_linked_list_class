@@ -18,20 +18,17 @@ function LinkedList() {
   this.add = function(element){
     // Only change code below this line
     let newNode = new Node(element)
-    let currentNode = null
-
+    
     if (this.length === 0) {
       head = newNode
     } else {
-      currentNode = newNode
-      currentNode.next = newItem
+      let currentNode = head
+      while (currentNode.next) {
+
+      }
+      currentNode.next = newNode
     }
     this.length++
     // Only change code above this line
   };
 }
-
-let ll = new LinkedList()
-ll.add("1", "mars")
-ll.add("2", "mercury")
-console.log("ll is ", ll)
