@@ -16,15 +16,12 @@ function LinkedList() {
   };
 
   this.add = function(element){
-    console.log("adding ", element)
     // Only change code below this line
     let newNode = new Node(element)
     
     if (length === 0) {
       head = newNode
-      console.log('start - length is ', length, ', head is ', head)
     } else {
-      console.log('head is ', head)
       let currentNode = head
       while (currentNode.next) {
         currentNode = currentNode.next
@@ -35,8 +32,3 @@ function LinkedList() {
     // Only change code above this line
   };
 }
-
-let ll = new LinkedList()
-ll.add('uno')
-ll.add('dos')
-ll.add('tres')
