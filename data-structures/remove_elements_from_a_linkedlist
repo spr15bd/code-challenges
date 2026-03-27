@@ -34,7 +34,11 @@ function LinkedList() {
 
   this.remove = function(element){
     // Only change code below this line
-
+    if (element === head) {
+      let secondNode = head.next
+      head = secondNode
+    }
+    length--
     // Only change code above this line
   };
 }
