@@ -38,15 +38,16 @@ function LinkedList() {
       return
     }
     if (element === head) {
-      let secondNode = head.next
-      head = null
-      head = secondNode?secondNode:null
+      head = head.next
     } else {
       let prevNode = head
       let nextNode = prevNode.next
       while (nextNode) {
         if (element === nextNode) {
           prevNode.next = nextNode.next
+        } else {
+          prevNode = nextNode
+          nextNode = nextNode.next
         }
       }
     }
