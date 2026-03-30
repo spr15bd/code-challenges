@@ -43,7 +43,7 @@ function LinkedList() {
       let prevNode = head
       let nextNode = prevNode.next
       while (nextNode) {
-        if (element === nextNode) {
+        if (element === nextNode.element) {
           prevNode.next = nextNode.next
         } else {
           prevNode = nextNode
@@ -60,7 +60,7 @@ let ll = new LinkedList()
 ll.add(123)
 ll.add(456)
 ll.add(789)
-console.log("ll 1st is: ", ll.head())
-console.log("ll 2nd is: ", ll.head().next)
+console.log("ll 1st is: ", ll.head().element)
+console.log("ll 2nd is: ", ll.head().next.element)
 ll.remove(123)
-console.log("ll 1st is: ", ll.head())
+console.log("ll 1st is: ", ll.head().element)
