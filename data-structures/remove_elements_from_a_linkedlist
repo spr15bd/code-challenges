@@ -37,7 +37,7 @@ function LinkedList() {
     if (head === null) {
       return
     }
-    if (element === head) {
+    if (element === head.element) {
       head = head.next
     } else {
       let prevNode = head
@@ -60,7 +60,9 @@ let ll = new LinkedList()
 ll.add(123)
 ll.add(456)
 ll.add(789)
+console.log("length is ", ll.size())
 console.log("ll 1st is: ", ll.head().element)
 console.log("ll 2nd is: ", ll.head().next.element)
-ll.remove(123)
+ll.remove(456)
 console.log("ll 1st is: ", ll.head().element)
+console.log("length is ", ll.size())
