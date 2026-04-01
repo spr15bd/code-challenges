@@ -39,19 +39,22 @@ function LinkedList() {
     }
     if (element === head.element) {
       head = head.next
+      length--
     } else {
       let prevNode = head
       let nextNode = prevNode.next
       while (nextNode) {
         if (element === nextNode.element) {
           prevNode.next = nextNode.next
+          length--
+          break
         } else {
           prevNode = nextNode
           nextNode = nextNode.next
         }
       }
     }
-    length--
+  
     // Only change code above this line
   };
 }
