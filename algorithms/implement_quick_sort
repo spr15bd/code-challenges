@@ -1,0 +1,31 @@
+function quickSort(array) {
+  // Only change code below this line
+  let pivot = 0
+  let lowerArray = []
+  let upperArray = []
+  let newArray = []
+  if (array.length === 1) {
+    return array
+  } else if (array.length === 2) {
+    return array[0] < array[1]?array:[array[1], array[0]]
+  } else {
+    // find a pivot
+    pivot = array[Math.floor(Math.random()*array.length)]
+    // partition array into two subarrays above & below pivot
+    array.forEach(item=>{
+      if (item < pivot) {
+        lowerArray.push(item)
+      } else {
+        upperArray.push(item)
+      }
+    })
+  }
+  // use recursion, unwinding this returns the final array
+  if (pivot) {
+    newArray = quickSort(lowerArray).concat(quickSort(upperArray))
+  } else {
+    newArray = []
+  }
+  return newArray;
+  // Only change code above this line
+}
