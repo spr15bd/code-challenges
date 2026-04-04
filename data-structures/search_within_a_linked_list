@@ -50,6 +50,20 @@ function LinkedList() {
   };
 
   // Only change code below this line
+  this.isEmpty = function(){
+    return length === 0
+  }
 
+  this.indexOf = function(element){
+    let currentNode = head
+    let index = 0
+    while(currentNode.next) {
+      if (currentNode === element) {
+        return index
+      }
+      index++
+    }
+    return -1
+  }
   // Only change code above this line
 }
