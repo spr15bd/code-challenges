@@ -57,13 +57,33 @@ function LinkedList() {
   this.indexOf = function(element){
     let currentNode = head
     let index = 0
+    if (currentNode.element === element) {
+      return 0
+    }
     while(currentNode.next) {
-      if (currentNode === element) {
+      if (currentNode.next.element === element) {
         return index
       }
       index++
     }
     return -1
+  }
+
+  this.elementAt = function (index) {
+    let startIdx = 0
+    let currentNode = head
+
+    if (index === 0) {
+      return currentNode.element
+    }
+
+    while (currentNode.next) {
+      startIdx++
+      if (startIdx === index) {
+        return currentNode.next.element
+      }
+    }
+    return undefined
   }
   // Only change code above this line
 }
