@@ -87,3 +87,11 @@ function LinkedList() {
   }
   // Only change code above this line
 }
+
+let ll = new LinkedList()
+ll.add("1234")
+ll.add("abc")
+ll.add("jhB")
+
+console.log("second element: ", ll.elementAt(1))
+console.log("tenth element: ", ll.elementAt(9))
