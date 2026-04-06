@@ -77,10 +77,12 @@ function LinkedList() {
       return currentNode.element
     }
 
-    while (currentNode.next) {
+    while (startIdx <= index) {
       startIdx++
+      currentNode = currentNode.next
+      if (!currentNode) break
       if (startIdx === index) {
-        return currentNode.next.element
+        return currentNode.element
       }
     }
     return undefined
