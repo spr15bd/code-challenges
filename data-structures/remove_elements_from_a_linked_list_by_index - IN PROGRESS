@@ -55,6 +55,6 @@ function LinkedList() {
   };
 
   this.removeAt = function(index){
-  length--
-}
+    length--
+  }
 }
