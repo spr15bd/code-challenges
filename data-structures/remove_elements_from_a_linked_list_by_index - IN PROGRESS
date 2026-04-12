@@ -53,4 +53,8 @@ function LinkedList() {
     length--
     // Only change code above this line
   };
+
+  this.removeAt = function(index){
+  length--
+}
 }
