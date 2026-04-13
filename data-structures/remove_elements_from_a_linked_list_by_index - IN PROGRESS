@@ -33,7 +33,6 @@ function LinkedList() {
   };
 
   this.remove = function(element){
-    // Only change code below this line
     if (head === null) {
       return
     }
@@ -51,10 +50,34 @@ function LinkedList() {
       }
     }
     length--
-    // Only change code above this line
   };
 
   this.removeAt = function(index){
-    length--
+    let elementToReturn
+    if (index === 0) {
+      elementToReturn = head.element
+      head = head.next
+      length--
+      return elementToReturn
+    }
+
+    let sequenceNo = 1
+    let prevNode = head
+    let nextNode = prevNode.next
+    while (nextNode) {
+      if (index === sequenceNo) {
+        elementToReturn = nextNode.element
+        prevNode.next = nextNode.next
+        length--
+        break
+      } else {
+        prevNode = nextNode
+        nextNode = nextNode.next
+        sequenceNo++
+      }
+    }
+    return elementToReturn
+
+    
   }
 }
