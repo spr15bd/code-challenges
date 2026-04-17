@@ -32,6 +32,12 @@ function LinkedList() {
   };
 
   // Only change code below this line
-
+  this.addAt = function(index, element) {
+    if (index < length || index > length) {
+      return false
+    } else if (index === 0) {
+      head = new Node(element)
+    }
+  }
   // Only change code above this line
 }
