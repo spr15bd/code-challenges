@@ -38,6 +38,7 @@ function LinkedList() {
     } else if (index === 0) {
       var currentNode = head;
       head = new Node(element)
+      head.next = currentNode
     } else {
       let currentIndex = 0
       var currentNode = head;
