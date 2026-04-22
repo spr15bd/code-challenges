@@ -7,11 +7,16 @@ var DoublyLinkedList = function() {
   this.head = null;
   this.tail = null;
   // Only change code below this line
-  add = function(element) {
-    
+  this.add = function(element) {
+    if (!this.head) {
+      this.head = new Node(element, null)
+    } else {
+      // while loop to get to end of list
+      let itemToAdd = new Node(element, )
+    }
   }
 
-  remove = function(element) {
+  this.remove = function(element) {
 
   }
   // Only change code above this line
