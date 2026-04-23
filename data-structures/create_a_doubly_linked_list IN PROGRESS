@@ -11,8 +11,13 @@ var DoublyLinkedList = function() {
     if (!this.head) {
       this.head = new Node(element, null)
     } else {
-      // while loop to get to end of list
-      let itemToAdd = new Node(element, )
+      let nextNode = this.head
+      let prevNode = null
+      while (nextNode.next) {
+        prevNode = nextNode
+        nextNode = nextNode.next
+      }
+      this.tail = nextNode
     }
   }
 
