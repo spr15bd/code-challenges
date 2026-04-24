@@ -12,11 +12,13 @@ var DoublyLinkedList = function() {
       this.head = new Node(element, null)
     } else {
       let nextNode = this.head
-      let prevNode = null
+      //nextNode.next = new Node(element, nextNode)
+      //let prevNode = null
       while (nextNode.next) {
-        prevNode = nextNode
+        //prevNode = nextNode
         nextNode = nextNode.next
       }
+      nextNode.next = new Node(element,nextNode)
       this.tail = nextNode
     }
   }
@@ -26,3 +28,8 @@ var DoublyLinkedList = function() {
   }
   // Only change code above this line
 };
+
+let dll = new DoublyLinkedList()
+dll.add("12")
+dll.add("456")
+console.log("dll is ", dll.head)
