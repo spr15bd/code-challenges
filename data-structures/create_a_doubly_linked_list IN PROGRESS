@@ -11,15 +11,15 @@ var DoublyLinkedList = function() {
     if (!this.head) {
       this.head = new Node(element, null)
     } else {
-      let nextNode = this.head
-      //nextNode.next = new Node(element, nextNode)
+      let prevNode = this.head
+      let nextNode = null
       //let prevNode = null
-      while (nextNode.next) {
-        //prevNode = nextNode
-        nextNode = nextNode.next
+      while (prevNode.next) {
+        nextNode = prevNode.next
+        prevNode = nextNode
       }
-      nextNode.next = new Node(element,nextNode)
-      this.tail = nextNode
+      prevNode.next = new Node(element,prevNode)
+      //nextNode.prev = nextNode
     }
   }
 
