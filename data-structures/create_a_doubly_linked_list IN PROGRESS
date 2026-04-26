@@ -11,6 +11,7 @@ var DoublyLinkedList = function() {
     if (!this.head) {
       this.head = new Node(element, null)
     } else {
+      console.log("head already exists")
       let prevNode = this.head
       let nextNode = null
       //let prevNode = null
@@ -19,6 +20,7 @@ var DoublyLinkedList = function() {
         prevNode = nextNode
       }
       prevNode.next = new Node(element,prevNode)
+      this.tail = new Node(element, prevNode)
       //nextNode.prev = nextNode
     }
   }
@@ -31,5 +33,6 @@ var DoublyLinkedList = function() {
 
 let dll = new DoublyLinkedList()
 dll.add("12")
+console.log("dll is ", dll)
 dll.add("456")
-console.log("dll is ", dll.head)
+console.log("dll is ", dll)
