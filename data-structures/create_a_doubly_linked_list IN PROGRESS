@@ -11,7 +11,6 @@ var DoublyLinkedList = function() {
     if (!this.head) {
       this.head = new Node(element, null)
     } else {
-      console.log("head already exists")
       let prevNode = this.head
       let nextNode = null
       //let prevNode = null
@@ -26,7 +25,11 @@ var DoublyLinkedList = function() {
   }
 
   this.remove = function(element) {
-
+    if (!this.head) {
+      return null
+    } else if (this.head.data === element) {
+      this.head = this.head.next
+    }
   }
   // Only change code above this line
 };
