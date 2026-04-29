@@ -13,14 +13,13 @@ var DoublyLinkedList = function() {
     } else {
       let prevNode = this.head
       let nextNode = null
-      //let prevNode = null
+      
       while (prevNode.next) {
         nextNode = prevNode.next
         prevNode = nextNode
       }
       prevNode.next = new Node(element,prevNode)
       this.tail = new Node(element, prevNode)
-      //nextNode.prev = nextNode
     }
   }
 
@@ -29,6 +28,18 @@ var DoublyLinkedList = function() {
       return null
     } else if (this.head.data === element) {
       this.head = this.head.next
+    } else {
+      let prevNode = this.head
+      let nextNode = null
+      
+      while (prevNode.next) {
+        nextNode = prevNode.next
+        //prevNode = nextNode
+        if (nextNode.data === element) {
+          prevNode.next = new Node(element,prevNode)
+          this.tail = new Node(element, prevNode) 
+        }
+      }
     }
   }
   // Only change code above this line
