@@ -36,8 +36,9 @@ var DoublyLinkedList = function() {
         nextNode = prevNode.next
         //prevNode = nextNode
         if (nextNode.data === element) {
-          prevNode.next = new Node(element,prevNode)
-          this.tail = new Node(element, prevNode) 
+          prevNode.next = nextNode.next
+          nextNode.next.prev = prevNode
+          //this.tail = new Node(element, prevNode) 
         }
       }
     }
