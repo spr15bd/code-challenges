@@ -37,10 +37,14 @@ var DoublyLinkedList = function() {
         //prevNode = nextNode
         if (nextNode.data === element) {
           prevNode.next = nextNode.next
-          nextNode.next.prev = prevNode
+          if (nextNode.next) {
+            nextNode.next.prev = prevNode
+          }
           //this.tail = new Node(element, prevNode) 
         }
       }
+      this.tail = prevNode
+      this.tail.prev = prevNode.prev
     }
   }
   // Only change code above this line
@@ -51,3 +55,5 @@ dll.add("12")
 console.log("dll is ", dll)
 dll.add("456")
 console.log("dll is ", dll)
+dll.remove("456")
+console.log("dll (after remove) is ", dll)
