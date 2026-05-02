@@ -31,14 +31,14 @@ var DoublyLinkedList = function() {
       this.head = this.head.next
     } else {
       let currentNode = this.head
+      let prevNode
       
       while (currentNode.next) {
+        prevNode = currentNode
         currentNode = currentNode.next
         if (currentNode.data === element) {
-          currentNode.next = currentNode.next
-          if (nextNode.next) {
-            nextNode.next.prev = prevNode
-          } 
+          prevNode.next = currentNode.next
+          currentNode.next.prev = currentNode
         }
       }
       this.tail = prevNode
