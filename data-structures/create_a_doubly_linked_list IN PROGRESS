@@ -11,15 +11,16 @@ var DoublyLinkedList = function() {
     if (!this.head) {
       this.head = new Node(element, null)
     } else {
-      let prevNode = this.head
-      let nextNode = null
+      let currentNode = this.head
+      let prevNode
       
-      while (prevNode.next) {
-        nextNode = prevNode.next
-        prevNode = nextNode
+      while (currentNode.next) {
+        prevNode = currentNode
+        currentNode = currentNode.next
       }
-      prevNode.next = new Node(element,prevNode)
-      this.tail = new Node(element, prevNode)
+      currentNode.next = new Node(element, prevNode)
+      this.tail = currentNode.next
+      this.tail.prev = currentNode
     }
   }
 
@@ -29,18 +30,15 @@ var DoublyLinkedList = function() {
     } else if (this.head.data === element) {
       this.head = this.head.next
     } else {
-      let prevNode = this.head
-      let nextNode = null
+      let currentNode = this.head
       
-      while (prevNode.next) {
-        nextNode = prevNode.next
-        //prevNode = nextNode
-        if (nextNode.data === element) {
-          prevNode.next = nextNode.next
+      while (currentNode.next) {
+        currentNode = currentNode.next
+        if (currentNode.data === element) {
+          currentNode.next = currentNode.next
           if (nextNode.next) {
             nextNode.next.prev = prevNode
-          }
-          //this.tail = new Node(element, prevNode) 
+          } 
         }
       }
       this.tail = prevNode
@@ -52,8 +50,7 @@ var DoublyLinkedList = function() {
 
 let dll = new DoublyLinkedList()
 dll.add("12")
-console.log("dll is ", dll)
 dll.add("456")
-console.log("dll is ", dll)
+dll.add("79")
 dll.remove("456")
 console.log("dll (after remove) is ", dll)
