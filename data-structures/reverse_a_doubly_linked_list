@@ -1,0 +1,20 @@
+var Node = function(data, prev) {
+  this.data = data;
+  this.prev = prev;
+  this.next = null;
+};
+var DoublyLinkedList = function() {
+  this.head = null;
+  this.tail = null;
+  // Only change code below this line
+  this.reverse = function(list) {
+    if (!list) {
+      return null
+    } else {
+      this.tail = temp
+      this.tail = this.head
+      this.head = this.tail
+    }
+  }
+  // Only change code above this line
+};
