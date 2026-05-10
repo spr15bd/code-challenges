@@ -7,52 +7,52 @@ var DoublyLinkedList = function() {
   this.head = null;
   this.tail = null;
   // Only change code below this line
-  this.add = function(element) {
+  this.add = function(element, prev) {
+    let newNode = new Node(element, prev)
     if (!this.head) {
-      this.head = new Node(element, null)
+      this.head = newNode
     } else {
       let currentNode = this.head
-      let prevNode
-      
-      while (currentNode.next) {
-        prevNode = currentNode
+      while(currentNode.next) {
         currentNode = currentNode.next
       }
-      currentNode.next = new Node(element, prevNode)
-      this.tail = currentNode.next
-      this.tail.prev = currentNode
+      currentNode.next = newNode
+      this.tail = newNode
     }
   }
-
-  this.remove = function(element) {
-    if (!this.head) {
+  this.reverse = function(list) {
+    if (!list) {
       return null
-    } else if (this.head.data === element) {
-      this.head = this.head.next
     } else {
+      let temp = this.tail
+      this.tail = this.head
+      this.head = temp
+
       let currentNode = this.head
-      let prevNode
+      currentNode.next = currentNode.prev
+      currentNode.prev = null
       
-      while (currentNode.next) {
-        prevNode = currentNode
+      while (currentNode.next && currentNode.next !== this.tail) {
         currentNode = currentNode.next
-        if (currentNode.data === element) {
-          prevNode.next = currentNode.next
-          if (currentNode.next) {
-            currentNode.next.prev = prevNode
-          }
-        }
+        let temp = currentNode
+        currentNode.next = currentNode.prev
+        currentNode.prev = temp.next
       }
-      this.tail = currentNode
-      this.tail.prev = currentNode.prev
+      this.tail.next = null
+      this.tail.prev = currentNode
     }
   }
   // Only change code above this line
 };
 
 let dll = new DoublyLinkedList()
-dll.add("12")
-dll.add("456")
-dll.add("79")
-dll.remove("79")
-console.log("dll (after remove) is ", dll)
+dll.add("123", null)
+dll.add("222", dll.head)
+let prev = new Node("222", dll.head)
+dll.add("234", prev)
+prev = new Node("234", prev)
+dll.add("333", prev)
+
+console.log("dll is ", dll)
+dll.reverse(dll)
+console.log("dll reversed is ", dll)
