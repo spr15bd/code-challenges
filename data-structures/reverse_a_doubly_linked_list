@@ -7,6 +7,16 @@ var DoublyLinkedList = function() {
   this.head = null;
   this.tail = null;
   // Only change code below this line
+  this.add = function(element) {
+    if (!this.head) {
+      this.head = new Node(element, null)
+      this.tail = this.head
+    } else {
+      let newTail = new Node(element, this.tail)
+      this.tail.next = newTail
+      this.tail = newTail
+    }
+  }
   this.reverse = function(list) {
     if (!list) {
       return null
@@ -14,21 +24,22 @@ var DoublyLinkedList = function() {
       let temp = this.tail
       this.tail = this.head
       this.head = temp
-      //this.tail.prev = this.head
-      //this.tail.next = null
-      
-      //this.head.next = this.tail
-      //this.head.prev = null
 
       let currentNode = this.head
       currentNode.next = currentNode.prev
       currentNode.prev = null
       
-      while (currentNode.next && currentNode.next !== this.tail) {
-        currentNode = currentNode.next
-        let temp = currentNode
-        currentNode.next = currentNode.prev
-        currentNode.prev = temp.next
+      while (currentNode.next) {
+        if (currentNode.next === this.tail) {
+          this.tail.prev=currentNode.next.next
+          this.tail.next = null
+          currentNode = this.tail
+        } else {
+          currentNode = currentNode.next
+          let temp = currentNode
+          currentNode.next = currentNode.prev
+          currentNode.prev = temp.next
+        }
       }
     }
   }
@@ -36,12 +47,13 @@ var DoublyLinkedList = function() {
 };
 
 let dll = new DoublyLinkedList()
-dll.head = new Node("123", null)
-let middleNode = new Node("222", dll.head)
-dll.head.next = middleNode
-dll.tail = new Node("234", middleNode)
-middleNode.next = dll.tail
+dll.add("123")
+dll.add("222")
+dll.add("234")
+dll.add("333")
 
 console.log("dll is ", dll)
+dll.reverse(dll)
+console.log("dll reversed is ", dll)
 dll.reverse(dll)
 console.log("dll reversed is ", dll)
