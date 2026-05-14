@@ -17,23 +17,26 @@ var DoublyLinkedList = function() {
       this.tail = newTail
     }
   }
-  this.reverse = function(list) {
-    if (!list) {
+  this.reverse = function() {
+    if (!this.head) {
       return null
     } else {
-      let temp = this.tail
-      this.tail = this.head
-      this.head = temp
-
       let currentNode = this.head
-      currentNode.next = currentNode.prev
-      currentNode.prev = null
+      while (currentNode) {
+        current
+        currentNode.next = currentNode.prev
+        currentNode.prev = null
+        console.log("head prev: ", this.head.prev)
+        console.log("head next: ", this.head.next)
+      }
       
       while (currentNode.next) {
         if (currentNode.next === this.tail) {
           this.tail.prev=currentNode.next.next
           this.tail.next = null
           currentNode = this.tail
+          console.log("tail prev: ", this.tail.prev)
+      console.log("tail next: ", this.tail.next)
         } else {
           currentNode = currentNode.next
           let temp = currentNode
@@ -54,6 +57,6 @@ dll.add("333")
 
 console.log("dll is ", dll)
 dll.reverse(dll)
-console.log("dll reversed is ", dll)
+console.log("dll reversed once is ", dll)
 dll.reverse(dll)
-console.log("dll reversed is ", dll)
+console.log("dll reversed twice is ", dll)
