@@ -21,28 +21,15 @@ var DoublyLinkedList = function() {
     if (!this.head) {
       return null
     } else {
+      let temp = this.head
+      this.head = this.tail
+      this.tail = temp
       let currentNode = this.head
       while (currentNode) {
-        current
+        let temp = currentNode.next
         currentNode.next = currentNode.prev
-        currentNode.prev = null
-        console.log("head prev: ", this.head.prev)
-        console.log("head next: ", this.head.next)
-      }
-      
-      while (currentNode.next) {
-        if (currentNode.next === this.tail) {
-          this.tail.prev=currentNode.next.next
-          this.tail.next = null
-          currentNode = this.tail
-          console.log("tail prev: ", this.tail.prev)
-      console.log("tail next: ", this.tail.next)
-        } else {
-          currentNode = currentNode.next
-          let temp = currentNode
-          currentNode.next = currentNode.prev
-          currentNode.prev = temp.next
-        }
+        currentNode.prev = temp
+        currentNode = currentNode.next
       }
     }
   }
