@@ -35,15 +35,3 @@ var DoublyLinkedList = function() {
   }
   // Only change code above this line
 };
-
-let dll = new DoublyLinkedList()
-dll.add("123")
-dll.add("222")
-dll.add("234")
-dll.add("333")
-
-console.log("dll is ", dll)
-dll.reverse(dll)
-console.log("dll reversed once is ", dll)
-dll.reverse(dll)
-console.log("dll reversed twice is ", dll)
