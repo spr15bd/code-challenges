@@ -7,7 +7,7 @@ function Node(value) {
 function BinarySearchTree() {
   this.root = null;
   // Only change code below this line
-  add = function(num) {
+  this.add = function(num) {
     let newNode = new Node(num)
   }
   // Only change code above this line
