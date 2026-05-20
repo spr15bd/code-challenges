@@ -8,8 +8,11 @@ function BinarySearchTree() {
   this.root = null;
   // Only change code below this line
   this.add = function(num) {
+    let newNode = new Node(num)
+    if (!this.node) {
+      this.node = newNode
+    }
     if (num>=this.left && num <=this.right) {
-      let newNode = new Node(num)
       this.root = newNode
     }
   }
