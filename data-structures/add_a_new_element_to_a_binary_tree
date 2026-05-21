@@ -9,11 +9,19 @@ function BinarySearchTree() {
   // Only change code below this line
   this.add = function(num) {
     let newNode = new Node(num)
-    if (!this.node) {
-      this.node = newNode
-    }
-    if (num>=this.left && num <=this.right) {
+    if (!this.root) {
       this.root = newNode
+    } else {
+      let currentNode = this.root
+      while (currentNode) {
+        if (num === currentNode.value) {
+          return null
+        } else if (num < currentNode) {
+          currentNode = currentNode.left
+        } else {
+          currentNode = currentNode.right
+        }
+      }
     }
   }
   // Only change code above this line
