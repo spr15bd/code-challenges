@@ -14,10 +14,8 @@ function BinarySearchTree() {
     } else {
       let currentNode = this.root
       while (currentNode) {
-        if (num === currentNode.value) {
-          return null
-        } else if (num < currentNode) {
-          currentNode = currentNode.left
+        if (num <= currentNode.value) {
+          currentNode.add(num)
         } else {
           currentNode = currentNode.right
         }
@@ -26,3 +24,8 @@ function BinarySearchTree() {
   }
   // Only change code above this line
 }
+
+let bst = new BinarySearchTree()
+bst.add(7)
+bst.add(8)
+console.log("BST: ", bst)
