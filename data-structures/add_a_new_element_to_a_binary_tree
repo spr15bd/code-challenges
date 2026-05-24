@@ -9,15 +9,27 @@ function BinarySearchTree() {
   // Only change code below this line
   this.add = function(num) {
     let newNode = new Node(num)
+    console.log("adding ", num)
     if (!this.root) {
       this.root = newNode
     } else {
       let currentNode = this.root
-      while (currentNode) {
+      let done = false
+      while (!done) {
         if (num <= currentNode.value) {
-          currentNode.add(num)
+          if (!currentNode.left) {
+            currentNode.left = newNode
+            done = true
+          } else {
+            currentNode = currentNode.left
+          }
         } else {
-          currentNode = currentNode.right
+          if (!currentNode.right) {
+            currentNode.right = newNode
+            done = true
+          } else {
+            currentNode = currentNode.right
+          }
         }
       }
     }
@@ -28,4 +40,6 @@ function BinarySearchTree() {
 let bst = new BinarySearchTree()
 bst.add(7)
 bst.add(8)
+bst.add(11)
+bst.add(4)
 console.log("BST: ", bst)
