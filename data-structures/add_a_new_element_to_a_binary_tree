@@ -11,25 +11,34 @@ function BinarySearchTree() {
     let newNode = new Node(num)
     console.log("adding ", num)
     if (!this.root) {
+      console.log("no root")
       this.root = newNode
     } else {
+      console.log("root found")
+      if (this.root.value === num) {
+        return null
+      }
       let currentNode = this.root
       let done = false
       while (!done) {
-        if (num <= currentNode.value) {
+        if (num < currentNode.value) {
           if (!currentNode.left) {
             currentNode.left = newNode
             done = true
           } else {
             currentNode = currentNode.left
           }
-        } else {
+        } else if (num > currentNode.value) {
+          console.log(num, " is gt ", currentNode.value)
           if (!currentNode.right) {
+            console.log("no right node for ", currentNode.value, ", adding ", newNode)
             currentNode.right = newNode
             done = true
           } else {
             currentNode = currentNode.right
           }
+        } else {
+          return null
         }
       }
     }
