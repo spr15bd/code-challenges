@@ -9,12 +9,9 @@ function BinarySearchTree() {
   // Only change code below this line
   this.add = function(num) {
     let newNode = new Node(num)
-    console.log("adding ", num)
     if (!this.root) {
-      console.log("no root")
       this.root = newNode
     } else {
-      console.log("root found")
       if (this.root.value === num) {
         return null
       }
@@ -29,9 +26,7 @@ function BinarySearchTree() {
             currentNode = currentNode.left
           }
         } else if (num > currentNode.value) {
-          console.log(num, " is gt ", currentNode.value)
           if (!currentNode.right) {
-            console.log("no right node for ", currentNode.value, ", adding ", newNode)
             currentNode.right = newNode
             done = true
           } else {
@@ -45,10 +40,3 @@ function BinarySearchTree() {
   }
   // Only change code above this line
 }
-
-let bst = new BinarySearchTree()
-bst.add(7)
-bst.add(8)
-bst.add(11)
-bst.add(4)
-console.log("BST: ", bst)
