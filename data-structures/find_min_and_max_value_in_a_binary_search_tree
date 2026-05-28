@@ -7,6 +7,17 @@ function Node(value) {
 function BinarySearchTree() {
   this.root = null;
   // Only change code below this line
-  
+  this.findMin = function() {
+    let min
+    if (!this.root) {
+      return null
+    }
+  }
+  this.findMax = function() {
+    let max
+    if (!this.root) {
+      return null
+    }
+  }
   // Only change code above this line
 }
