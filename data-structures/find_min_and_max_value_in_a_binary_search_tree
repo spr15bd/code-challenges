@@ -11,6 +11,15 @@ function BinarySearchTree() {
     let min
     if (!this.root) {
       return null
+    } else {
+      let currentMin
+      let currentNode
+      currentNode = this.root
+      while (currentNode) {
+        currentNode = currentNode.left
+        if (currentNode)
+      }
+
     }
   }
   this.findMax = function() {
