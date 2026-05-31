@@ -15,17 +15,28 @@ function BinarySearchTree() {
       let currentMin
       let currentNode
       currentNode = this.root
+      currentMin = this.root.value
       while (currentNode) {
         currentNode = currentNode.left
-        if (currentNode)
+        currentMin = currentNode.left
       }
-
+      return currentMin
     }
   }
   this.findMax = function() {
     let max
     if (!this.root) {
       return null
+    } else {
+      let currentMax
+      let currentNode
+      currentNode = this.root
+      currentMax = this.root.value
+      while (currentNode) {
+        currentNode = currentNode.right
+        currentMax = currentNode.right
+      }
+      return currentMax
     }
   }
   // Only change code above this line
