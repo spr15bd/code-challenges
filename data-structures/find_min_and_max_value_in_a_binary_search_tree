@@ -18,7 +18,8 @@ function BinarySearchTree() {
       currentMin = this.root.value
       while (currentNode) {
         currentNode = currentNode.left
-        currentMin = currentNode.left
+        currentMin = currentNode.left.value
+        console.log("current min is: ", currentMin)
       }
       return currentMin
     }
@@ -34,10 +35,20 @@ function BinarySearchTree() {
       currentMax = this.root.value
       while (currentNode) {
         currentNode = currentNode.right
-        currentMax = currentNode.right
+        currentMax = currentNode.right.value
+        console.log("current max is: ", currentMax)
       }
       return currentMax
     }
   }
   // Only change code above this line
 }
+
+let bst = new BinarySearchTree()
+bst.root = new Node(23)
+bst.root.left = new Node(14)
+bst.root.right = new Node(38)
+bst.root.left.left = new Node(5)
+bst.root.left.right = new Node(19)
+console.log(bst)
+bst.findMin()
