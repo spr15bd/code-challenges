@@ -8,7 +8,6 @@ function BinarySearchTree() {
   this.root = null;
   // Only change code below this line
   this.findMin = function() {
-    let min
     if (!this.root) {
       return null
     } else {
@@ -17,15 +16,15 @@ function BinarySearchTree() {
       currentNode = this.root
       currentMin = this.root.value
       while (currentNode) {
-        currentNode = currentNode.left
-        currentMin = currentNode.left.value
-        console.log("current min is: ", currentMin)
+        currentNode = currentNode?.left
+        if (currentNode) {
+          currentMin = currentNode?.value
+        }
       }
       return currentMin
     }
   }
   this.findMax = function() {
-    let max
     if (!this.root) {
       return null
     } else {
@@ -34,9 +33,10 @@ function BinarySearchTree() {
       currentNode = this.root
       currentMax = this.root.value
       while (currentNode) {
-        currentNode = currentNode.right
-        currentMax = currentNode.right.value
-        console.log("current max is: ", currentMax)
+        currentNode = currentNode?.right
+        if (currentNode) {
+          currentMax = currentNode?.value
+        }
       }
       return currentMax
     }
@@ -44,6 +44,7 @@ function BinarySearchTree() {
   // Only change code above this line
 }
 
+// Test code
 let bst = new BinarySearchTree()
 bst.root = new Node(23)
 bst.root.left = new Node(14)
