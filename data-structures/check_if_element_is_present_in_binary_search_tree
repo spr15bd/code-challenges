@@ -7,6 +7,10 @@ function Node(value) {
 function BinarySearchTree() {
   this.root = null;
   // Only change code below this line
-  
+  this.isPresent = function(num) {
+    if (!this.root) {
+      return false
+    }
+  }
   // Only change code above this line
 }
