@@ -11,6 +11,13 @@ function BinarySearchTree() {
     if (!this.root) {
       return false
     }
+    let currentItem = this.root
+    while (currentItem) {
+      if (currentItem.value === num) {
+        return true
+      }
+      currentItem = currentItem.left
+    }
   }
   // Only change code above this line
 }
