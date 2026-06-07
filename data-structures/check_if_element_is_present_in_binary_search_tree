@@ -16,9 +16,10 @@ function BinarySearchTree() {
       if (currentItem.value === num) {
         return true
       }
-      let bst = new BinarySearchTree() {
-        while
+      if (!currentItem.value) {
+        return null
       }
+      currentItem = new BinarySearchTree() 
     }
   }
   // Only change code above this line
