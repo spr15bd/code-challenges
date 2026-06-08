@@ -19,8 +19,16 @@ function BinarySearchTree() {
       if (!currentItem.value) {
         return null
       }
-      currentItem = new BinarySearchTree() 
+      let bst = new BinarySearchTree() 
+      bst.root = currentItem.left
+      return bst.isPresent(num)
     }
   }
   // Only change code above this line
 }
+
+// test
+let bs = new BinarySearchTree()
+bs.root = new Node(14)
+bs.root.left = new Node(8)
+bs.root.right = new Node(28)
