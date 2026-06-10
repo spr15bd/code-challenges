@@ -17,11 +17,14 @@ function BinarySearchTree() {
       if (currentItem.value === num) {
         return true
       }
-      if (!currentItem.value) {
+      let bst = new BinarySearchTree() 
+      if (currentItem.left) {
+        bst.root = currentItem.left
+      } else if (currentItem.right) {
+        bst.root = currentItem.right
+      } else {
         return null
       }
-      let bst = new BinarySearchTree() 
-      bst.root = currentItem.left
       return bst.isPresent(num)
     }
   }
@@ -40,4 +43,4 @@ bs.root.left.right = new Node(11)
 bs.root.right.left = new Node(19)
 bs.root.right.right = new Node(38)
 
-console.log("Is 14 present? ", bs.isPresent(14))
+console.log("Is 3 present? ", bs.isPresent(3))
