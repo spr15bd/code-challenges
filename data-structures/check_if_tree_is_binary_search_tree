@@ -10,7 +10,11 @@ function BinarySearchTree() {
 function isBinarySearchTree(tree) {
   // Only change code below this line
   let bst = tree.root
-  return true
+  if (isBinarySearchTree(bst)) {
+    return true
+  } else {
+    return false
+  }
   // Only change code above this line
 }
 
