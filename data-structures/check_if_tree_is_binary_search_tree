@@ -9,7 +9,8 @@ function BinarySearchTree() {
 }
 function isBinarySearchTree(tree) {
   // Only change code below this line
-  let bst = tree.root
+  console.log("running isBinarySearchTree, tree = ", tree)
+  let bst = tree
   if (isBinarySearchTree(bst)) {
     return true
   } else {
@@ -28,4 +29,5 @@ node.right = new Node(18)
 node.right.left = new Node(15)
 node.right.right = new Node(23)
 
+console.log("bst is ", bst)
 console.log("Is this a bst? ", isBinarySearchTree(bst))
