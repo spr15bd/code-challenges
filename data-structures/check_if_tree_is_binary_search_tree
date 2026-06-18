@@ -17,6 +17,9 @@ function isBinarySearchTree(tree) {
   console.log("subtree right is ", subTree.right.value)
   if (subTree.left.value <= subTree.value && subTree.value < subTree.right.value) {
     console.log("subtree is a bst")
+    return isBinarySearchTree(subTree.root)
+  } else {
+    return false
   }
 
   if (isBinarySearchTree(bst.root)) {
@@ -34,8 +37,8 @@ node.left = new Node(9)
 node.left.left = new Node(4)
 node.left.right = new Node(13)
 node.right = new Node(27)
-node.right.left = new Node(15)
-node.right.right = new Node(23)
+node.right.left = new Node(23)
+node.right.right = new Node(36)
 bst.root = node
 
 console.log("bst is ", bst)
