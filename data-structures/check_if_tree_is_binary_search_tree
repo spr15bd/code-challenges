@@ -21,7 +21,6 @@ function isBinarySearchTree(tree) {
   } else {
     return false
   }
-
   // Only change code above this line
 }
 
