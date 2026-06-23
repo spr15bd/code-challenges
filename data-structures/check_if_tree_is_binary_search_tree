@@ -12,12 +12,12 @@ function isBinarySearchTree(tree) {
   //check if root is a bst
   let subTree = tree
   console.log("subtree is ", subTree)
-  if (subTree.left) {
+  if (subTree.left.value && subTree.right.value && subTree.left.value <= subTree.value && subTree.value < subTree.right.value) {
     return isBinarySearchTree(subTree.left)
-  } else if (subTree.right){
+  } else if (subTree.left.value && subTree.left.value <= subTree.value && !subTree.right.value){
+    return isBinarySearchTree(subTree.left)
+  } else if (subTree.right.value && !subTree.left.value && subTree.value < subTree.right.value){
     return isBinarySearchTree(subTree.right)
-  } else {
-    return null
   }
 
   // Only change code above this line
