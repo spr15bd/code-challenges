@@ -15,9 +15,16 @@ function isBinarySearchTree(tree) {
   if (subTree.left?.value && subTree.right?.value && subTree.left?.value <= subTree.value && subTree.value < subTree.right?.value) {
     return isBinarySearchTree(subTree.left)
     && isBinarySearchTree(subTree.right)
-  } else if (subTree.left?.value && subTree.left?.value <= subTree.value && !subTree.right?.value){
+  } else if (subTree.left?.value && subTree.right?.value && subTree.left?.value <= subTree.value && subTree.value < subTree.right?.value) {
     return isBinarySearchTree(subTree.left)
+    && isBinarySearchTree(subTree.right)
+  } else if (!(subTree.left?.value && subTree.right?.value && subTree.left?.value <= subTree.value && subTree.value < subTree.right?.value)) {
+    return false
+  } else if (!(subTree.left?.value && subTree.left?.value <= subTree.value && !subTree.right?.value)) {
+    return false
   } else if (subTree.right?.value && !subTree.left?.value && subTree.value < subTree.right?.value){
+    return isBinarySearchTree(subTree.right)
+  } else if (!(subTree.right?.value && !subTree.left?.value && subTree.value < subTree.right?.value)) {
     return isBinarySearchTree(subTree.right)
   } else {
     console.log("returning true")
