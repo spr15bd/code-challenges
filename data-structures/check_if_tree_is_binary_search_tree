@@ -25,7 +25,7 @@ function isBinarySearchTree(tree) {
   } else if (subTree.right?.value && !subTree.left?.value && subTree.value < subTree.right?.value){
     return isBinarySearchTree(subTree.right)
   } else if (!(subTree.right?.value && !subTree.left?.value && subTree.value < subTree.right?.value)) {
-    return isBinarySearchTree(subTree.right)
+    return false
   } else {
     console.log("returning true")
     return true
