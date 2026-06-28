@@ -11,23 +11,16 @@ function isBinarySearchTree(tree) {
   // Only change code below this line
   //check if root is a bst
   let subTree = tree
-  console.log("subtree is ", subTree)
+  if (!subTree.value) return true
   if (subTree.left?.value && subTree.right?.value && subTree.left?.value <= subTree.value && subTree.value < subTree.right?.value) {
     return isBinarySearchTree(subTree.left)
     && isBinarySearchTree(subTree.right)
-  } else if (subTree.left?.value && subTree.right?.value && subTree.left?.value <= subTree.value && subTree.value < subTree.right?.value) {
-    return isBinarySearchTree(subTree.left)
-    && isBinarySearchTree(subTree.right)
-  } else if (!(subTree.left?.value && subTree.right?.value && subTree.left?.value <= subTree.value && subTree.value < subTree.right?.value)) {
-    return false
-  } else if (!(subTree.left?.value && subTree.left?.value <= subTree.value && !subTree.right?.value)) {
-    return false
   } else if (subTree.right?.value && !subTree.left?.value && subTree.value < subTree.right?.value){
     return isBinarySearchTree(subTree.right)
-  } else if (!(subTree.right?.value && !subTree.left?.value && subTree.value < subTree.right?.value)) {
-    return false
+  } else if (subTree.left?.value && !subTree.right?.value && subTree.left?.value <= subTree.value) {
+    return isBinarySearchTree(subTree.left)
   } else {
-    console.log("returning true")
+    console.log("reached base, returning true")
     return true
   }
 
@@ -44,6 +37,4 @@ node.right = new Node(27)
 node.right.left = new Node(33)
 node.right.right = new Node(36)
 bst = node
-
-console.log("bst is ", bst)
-console.log("Is this a bst? ", isBinarySearchTree(bst))
+console.log(isBinarySearchTree(bst))
