@@ -10,11 +10,10 @@ function BinarySearchTree() {
 function isBinarySearchTree(tree) {
   // Only change code below this line
   //check if root is a bst
-  let subTree = tree
-  if (!subTree) return true
-  else if ((!subTree.left?.value || subTree.left?.value < subTree.value) && (!subTree.right?.value || subTree.value <= subTree.right?.value)) {
-    return isBinarySearchTree(subTree.left)
-    && isBinarySearchTree(subTree.right)
+  if (!tree) return true
+  else if ((!tree.left?.value || tree.left?.value < tree.value) && (!tree.right?.value || tree.value <= tree.right?.value)) {
+    return isBinarySearchTree(tree.left)
+    && isBinarySearchTree(tree.right)
   } else {
     return false
   }
@@ -25,9 +24,9 @@ function isBinarySearchTree(tree) {
 // test
 let bst = new BinarySearchTree()
 let node = new Node(18)
-node.left = new Node(9)
+node.left = new Node(17)
 node.left.left = new Node(4)
-node.left.right = new Node(13)
+node.left.right = new Node(18)
 node.right = new Node(27)
 node.right.left = new Node(23)
 node.right.right = new Node(36)
