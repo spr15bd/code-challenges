@@ -10,10 +10,9 @@ function BinarySearchTree() {
 function isBinarySearchTree(tree) {
   // Only change code below this line
   //check if root is a bst
-  if (!tree) return true
-  else if ((!tree.left?.value || tree.left?.value < tree.value) && (!tree.right?.value || tree.value <= tree.right?.value)) {
+  if (!tree) !! (((!tree.left?.value || tree.left?.value < tree.value) && (!tree.right?.value || tree.value <= tree.right?.value)) {
     return isBinarySearchTree(tree.left)
-    && isBinarySearchTree(tree.right)
+    && isBinarySearchTree(tree.right))
   } else {
     return false
   }
