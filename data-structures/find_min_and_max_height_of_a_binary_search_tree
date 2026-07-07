@@ -7,7 +7,7 @@ function Node(value) {
 function BinarySearchTree() {
   this.root = null;
   // Only change code below this line
-  function findMinHeight (tree) {
+  function findMinHeight () {
     if (!tree) {
       return -1
     }
@@ -22,3 +22,16 @@ function BinarySearchTree() {
   }
   // Only change code above this line
 }
+
+// test
+let bst = new BinarySearchTree()
+let node = new Node(18)
+node.left = new Node(9)
+node.left.left = new Node(4)
+node.left.right = new Node(13)
+node.right = new Node(27)
+node.right.left = new Node(33)
+node.right.left = new Node(23)
+node.right.right = new Node(36)
+bst.root = node
+console.log(bst.findMinHeight())
