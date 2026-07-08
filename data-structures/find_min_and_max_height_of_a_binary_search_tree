@@ -7,17 +7,23 @@ function Node(value) {
 function BinarySearchTree() {
   this.root = null;
   // Only change code below this line
-  function findMinHeight () {
+  this.findMinHeight = function() {
+    if (!tree) {
+      return -1
+    }
+    this.findNodeMinHeight = function(node) {
+      if (node) {
+        return findNodeMinHeight(node.left) 
+        && findNodeMinHeight(node.right)
+      }
+    }
+  }
+  this.findMaxHeight = function() {
     if (!tree) {
       return -1
     }
   }
-  function findMaxHeight (tree) {
-    if (!tree) {
-      return -1
-    }
-  }
-  function isBalanced() {
+  this.isBalanced = function() {
     return false
   }
   // Only change code above this line
