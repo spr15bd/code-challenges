@@ -8,17 +8,19 @@ function BinarySearchTree() {
   this.root = null;
   // Only change code below this line
   this.findMinHeight = function() {
-    if (!tree) {
+    if (!this.root) {
       return -1
+    } else {
+      return findNodeMinHeight(this.root)
     }
-    this.findNodeMinHeight = function(node) {
+    function findNodeMinHeight (node) {
       if (node) {
         return findNodeMinHeight(node.left) 
         && findNodeMinHeight(node.right)
       }
     }
   }
-  this.findMaxHeight = function() {
+  this.findMaxHeight = function(tree) {
     if (!tree) {
       return -1
     }
