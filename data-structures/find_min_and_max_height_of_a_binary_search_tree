@@ -30,7 +30,7 @@ function BinarySearchTree() {
     }
   }
   this.isBalanced = function() {
-    return false
+    return findMinHeight === findMaxHeight
   }
   // Only change code above this line
 }
