@@ -17,8 +17,8 @@ function BinarySearchTree() {
     function findNodeMinHeight (node) {
       if (node) {
         height++
-        return findNodeMinHeight(node.left) 
-        && findNodeMinHeight(node.right)
+        return Math.min(findNodeMinHeight(node.left)
+        && findNodeMinHeight(node.right))
       } else {
         return height
       }
