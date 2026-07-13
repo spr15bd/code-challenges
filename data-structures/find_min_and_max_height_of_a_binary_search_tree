@@ -25,8 +25,20 @@ function BinarySearchTree() {
     }
   }
   this.findMaxHeight = function(tree) {
-    if (!tree) {
+    let height = 0
+    if (!this.root) {
       return -1
+    } else {
+      return findNodeMaxHeight(this.root)
+    }
+    function findNodeMaxHeight (node) {
+      if (node) {
+        height++
+        return Math.max(findNodeMaxHeight(node.left)
+        && findNodeMaxHeight(node.right))
+      } else {
+        return height
+      }
     }
   }
   this.isBalanced = function() {
