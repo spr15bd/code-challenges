@@ -16,33 +16,20 @@ function BinarySearchTree() {
     }
     function findNodeMinHeight (node) {
       if (node) {
-        height++
-        return Math.min(findNodeMinHeight(node.left)
-        && findNodeMinHeight(node.right))
+        return 1 + Math.min(findNodeMinHeight(node.left) ,
+         findNodeMinHeight(node.right))
       } else {
-        return height
+        return 0
       }
     }
   }
   this.findMaxHeight = function(tree) {
-    let height = 0
-    if (!this.root) {
+    if (!tree) {
       return -1
-    } else {
-      return findNodeMaxHeight(this.root)
-    }
-    function findNodeMaxHeight (node) {
-      if (node) {
-        height++
-        return Math.max(findNodeMaxHeight(node.left)
-        && findNodeMaxHeight(node.right))
-      } else {
-        return height
-      }
     }
   }
   this.isBalanced = function() {
-    return findMinHeight === findMaxHeight
+    return findMinHeight() === findMaxHeight()
   }
   // Only change code above this line
 }
