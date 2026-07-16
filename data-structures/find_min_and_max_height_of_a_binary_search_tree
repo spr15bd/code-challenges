@@ -53,5 +53,7 @@ node.right = new Node(27)
 node.right.left = new Node(33)
 node.right.left = new Node(23)
 node.right.right = new Node(36)
+node.right.right.left = new Node(35)
+node.right.right.right = new Node(40)
 bst.root = node
-console.log(bst.findMaxHeight())
+console.log(bst.findMinHeight())
