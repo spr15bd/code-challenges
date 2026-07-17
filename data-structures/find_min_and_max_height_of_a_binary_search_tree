@@ -11,7 +11,7 @@ function BinarySearchTree() {
     if (!this.root) {
       return -1
     } else {
-      return findNodeMinHeight(this.root)
+      return findNodeMinHeight(this.root) - 1
     }
     function findNodeMinHeight (node) {
       if (node) {
@@ -26,19 +26,19 @@ function BinarySearchTree() {
     if (!this.root) {
       return -1
     } else {
-      return findNodeMaxHeight(this.root)
+      return findNodeMaxHeight(this.root) - 1
     }
     function findNodeMaxHeight (node) {
       if (node) {
         return 1 + Math.max(findNodeMaxHeight(node.left) ,
          findNodeMaxHeight(node.right))
       } else {
-        return 0
+        return null
       }
     }
   }
   this.isBalanced = function() {
-    return findMinHeight() === findMaxHeight()
+    return this.findMinHeight() === this.findMaxHeight()
   }
   // Only change code above this line
 }
@@ -56,4 +56,6 @@ node.right.right = new Node(36)
 node.right.right.left = new Node(35)
 node.right.right.right = new Node(40)
 bst.root = node
-console.log(bst.findMinHeight())
+console.log("max height: ", bst.findMaxHeight())
+console.log("min height: ", bst.findMinHeight())
+console.log("is balanced?: ", bst.isBalanced())
