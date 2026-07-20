@@ -7,6 +7,27 @@ function Node(value) {
 function BinarySearchTree() {
   this.root = null;
   // Only change code below this line
-  
+  this.inorder = function() {
+    if (!this.root) {
+      return null
+    }
+    return []
+  }
   // Only change code above this line
 }
+
+
+// test
+let bst = new BinarySearchTree()
+let node = new Node(18)
+node.left = new Node(9)
+node.left.left = new Node(4)
+node.left.right = new Node(13)
+node.right = new Node(27)
+node.right.left = new Node(33)
+node.right.left = new Node(23)
+node.right.right = new Node(36)
+node.right.right.left = new Node(35)
+node.right.right.right = new Node(40)
+bst.root = node
+console.log("inorder: ", bst.inorder())
