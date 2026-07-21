@@ -11,6 +11,10 @@ function BinarySearchTree() {
     if (!this.root) {
       return null
     }
+
+    function descendTree(node) {
+      if (!node) return []
+    }
     return []
   }
   // Only change code above this line
