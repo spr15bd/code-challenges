@@ -11,9 +11,11 @@ function BinarySearchTree() {
     if (!this.root) {
       return null
     }
-
+    let nodes = []
+    descendTree(this)
     function descendTree(node) {
       if (!node) return []
+      nodes.push(node.root)
     }
     return []
   }
