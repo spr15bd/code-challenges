@@ -12,10 +12,13 @@ function BinarySearchTree() {
       return null
     }
     let nodes = []
-    descendTree(this)
+    descendTree(this.root)
     function descendTree(node) {
-      if (!node) return []
-      nodes.push(node.root)
+      if (!node) return nodes
+      
+      nodes.push(node.value)
+      console.log("added node value ", node.value, ", nodes is ", nodes)
+      descendTree(node.left)
     }
     return []
   }
