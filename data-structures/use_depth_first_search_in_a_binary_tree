@@ -12,15 +12,22 @@ function BinarySearchTree() {
       return null
     }
     let nodes = []
-    descendTree(this.root)
+    return descendTree(this.root)
     function descendTree(node) {
-      if (!node) return nodes
-      
+      if (!node) {
+        console.log("final branch is ", nodes)
+        return nodes
+      }
       nodes.push(node.value)
       console.log("added node value ", node.value, ", nodes is ", nodes)
-      descendTree(node.left)
+      
+      // route traversal
+      if (node.left) {
+        return descendTree(node.left)
+      } else {
+        return descendTree(node.right)
+      }
     }
-    return []
   }
   // Only change code above this line
 }
