@@ -15,17 +15,17 @@ function BinarySearchTree() {
     return descendTree(this.root)
     function descendTree(node) {
       if (!node) {
-        console.log("final branch is ", nodes)
         return nodes
       }
       nodes.push(node.value)
-      console.log("added node value ", node.value, ", nodes is ", nodes)
       
       // route traversal
       if (node.left) {
         return descendTree(node.left)
-      } else {
+      } else if (node.right) {
         return descendTree(node.right)
+      } else {
+        return null
       }
     }
   }
@@ -40,7 +40,6 @@ node.left = new Node(9)
 node.left.left = new Node(4)
 node.left.right = new Node(13)
 node.right = new Node(27)
-node.right.left = new Node(33)
 node.right.left = new Node(23)
 node.right.right = new Node(36)
 node.right.right.left = new Node(35)
