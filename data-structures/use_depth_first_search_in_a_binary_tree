@@ -21,11 +21,19 @@ function BinarySearchTree() {
       
       // route traversal
       if (node.left) {
-        return descendTree(node.left)
+        if (descendTree(node.left) != false) {
+          return descendTree(node.left)
+        } else if (descendTree(node.right) != false) {
+          return descendTree(node.right)
+        }
       } else if (node.right) {
-        return descendTree(node.right)
+        if (descendTree(node.left) != false) {
+          return descendTree(node.left)
+        } else if (descendTree(node.right) != false) {
+          return descendTree(node.right)
+        }
       } else {
-        return null
+        return nodes
       }
     }
   }
