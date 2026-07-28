@@ -15,25 +15,16 @@ function BinarySearchTree() {
     return descendTree(this.root)
     function descendTree(node) {
       if (!node) {
-        return nodes
+        return []
       }
-      nodes.push(node.value)
       
       // route traversal
       if (node.left) {
-        if (descendTree(node.left) != false) {
-          return descendTree(node.left)
-        } else if (descendTree(node.right) != false) {
-          return descendTree(node.right)
-        }
+        nodes = descendTree(node.left)
+        nodes.push(node.value)
       } else if (node.right) {
-        if (descendTree(node.left) != false) {
-          return descendTree(node.left)
-        } else if (descendTree(node.right) != false) {
-          return descendTree(node.right)
-        }
-      } else {
-        return nodes
+        nodes = descendTree(node.right)
+        nodes.push(node.value)
       }
     }
   }
