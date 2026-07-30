@@ -20,11 +20,16 @@ function BinarySearchTree() {
       
       // route traversal
       if (node.left) {
-        nodes = descendTree(node.left)
-        nodes.push(node.value)
+        console.log("left node found: ", node.left.value)
+        nodes.push(descendTree(node.left))
+        return
       } else if (node.right) {
-        nodes = descendTree(node.right)
-        nodes.push(node.value)
+        console.log("right node found: ", node.right.value)
+        nodes.push(descendTree(node.right))
+        return
+      } else {
+        console.log("reached the bottom, adding ", node.value)
+        return node.value
       }
     }
   }
