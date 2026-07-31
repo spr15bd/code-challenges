@@ -21,12 +21,13 @@ function BinarySearchTree() {
       // route traversal
       if (node.left) {
         console.log("left node found: ", node.left.value)
+        console.log("pushing ", descendTree(node.left))
         nodes.push(descendTree(node.left))
-        return
+        return node.value
       } else if (node.right) {
         console.log("right node found: ", node.right.value)
         nodes.push(descendTree(node.right))
-        return
+        return node.value
       } else {
         console.log("reached the bottom, adding ", node.value)
         return node.value
