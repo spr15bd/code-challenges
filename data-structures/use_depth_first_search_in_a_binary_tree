@@ -26,12 +26,13 @@ function BinarySearchTree() {
         //console.log("pushing ", descendTree(node.left))
         nodes.push(descendTree(node.left))
         console.log("nodes is now ", nodes)
+        nodes.push(node.value)
+        console.log("nodes is now ", nodes)
         nodes.push(descendTree(node.right))
-        return node.value
+        console.log("nodes is now ", nodes)
       } else if (node.right) {
         console.log("right node found: ", node.right.value)
         nodes.push(descendTree(node.right))
-        return node.value
       } else {
         console.log("reached the bottom, adding ", node.value)
         return node.value
