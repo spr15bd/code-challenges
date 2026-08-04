@@ -12,30 +12,28 @@ function BinarySearchTree() {
       return null
     }
     let nodes = []
-    nodes.push(descendTree(this.root))
+    descendTree(this.root)
     console.log("nodes is now ", nodes)
     return nodes
     function descendTree(node) {
-      if (!node) {
-        return []
-      }
+      //if (!node) {
+      //  return []
+      //}
       
       // route traversal
       if (node.left) {
-        //console.log("left node found: ", node.left.value)
-        //console.log("pushing ", descendTree(node.left))
-        nodes.push(descendTree(node.left))
-        console.log("nodes is now ", nodes)
+        descendTree(node.left)
+        console.log("after left, nodes is now ", nodes)
         nodes.push(node.value)
-        console.log("nodes is now ", nodes)
-        nodes.push(descendTree(node.right))
-        console.log("nodes is now ", nodes)
+        console.log("centre, nodes is now ", nodes)
+        descendTree(node.right)
+        console.log("after right, nodes is now ", nodes)
       } else if (node.right) {
         console.log("right node found: ", node.right.value)
         nodes.push(descendTree(node.right))
       } else {
         console.log("reached the bottom, adding ", node.value)
-        return node.value
+        nodes.push(node.value)
       }
     }
   }
