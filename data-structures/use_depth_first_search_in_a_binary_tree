@@ -33,6 +33,19 @@ function BinarySearchTree() {
       return null
     }
     let nodes = []
+    descendTree(this.root)
+
+    function descendTree(node) {
+      if (node.left) {
+        descendTree(node.left)
+      }
+      if (node.value) {
+        nodes.push(node.value)
+      }
+      if (node.right) {
+        descendTree(node.right)
+      }
+    }
   }
   // Only change code above this line
 }
