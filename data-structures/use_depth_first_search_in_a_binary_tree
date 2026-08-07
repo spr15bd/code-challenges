@@ -33,17 +33,16 @@ function BinarySearchTree() {
       return null
     }
     let nodes = []
-    descendTree(this.root)
+    return descendTree(this.root)
 
     function descendTree(node) {
       if (node.left) {
-        descendTree(node.left)
-      }
-      if (node.value) {
-        nodes.push(node.value)
-      }
-      if (node.right) {
+        return descendTree(node.left)
+      } else if (node.right) {
         descendTree(node.right)
+      } else {
+        nodes.push(node.value)
+        return nodes
       }
     }
   }
@@ -64,3 +63,4 @@ node.right.right.left = new Node(35)
 node.right.right.right = new Node(40)
 bst.root = node
 console.log("inorder: ", bst.inorder())
+console.log("preorder: ", bst.preorder())
