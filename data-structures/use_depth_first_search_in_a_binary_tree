@@ -36,14 +36,10 @@ function BinarySearchTree() {
     return descendTree(this.root)
 
     function descendTree(node) {
-      if (node.left) {
-        return descendTree(node.left)
-      } else if (node.right) {
-        descendTree(node.right)
-      } else {
-        nodes.push(node.value)
-        return nodes
-      }
+      nodes.push(node?.value)
+      if (node.left) descendTree(node?.left)
+      if (node.right) descendTree(node?.right)
+      return nodes
     }
   }
   // Only change code above this line
