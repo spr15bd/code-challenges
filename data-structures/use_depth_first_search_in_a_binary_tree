@@ -13,10 +13,8 @@ function BinarySearchTree() {
     }
     let nodes = []
     descendTree(this.root)
-    console.log("nodes is now ", nodes)
     return nodes
     function descendTree(node) { 
-      // route traversal
       if (node.left) {
         descendTree(node.left)
       }
@@ -52,6 +50,7 @@ let node = new Node(18)
 node.left = new Node(9)
 node.left.left = new Node(4)
 node.left.right = new Node(13)
+node.left.right.left = new Node(11)
 node.right = new Node(27)
 node.right.left = new Node(23)
 node.right.right = new Node(36)
