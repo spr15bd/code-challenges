@@ -35,6 +35,19 @@ function BinarySearchTree() {
       return nodes
     }
   }
+  this.postorder = function() {
+    if (!this.root) {
+      return null
+    }
+    let nodes = []
+    return descendTree(this.root)
+    
+    function descendTree(node) {
+      if (node.left) descendTree(node?.left)
+      nodes.push(node?.value)
+      return nodes
+    }
+  }
   // Only change code above this line
 }
 
@@ -55,3 +68,4 @@ node.right.right.right = new Node(40)
 bst.root = node
 console.log("inorder: ", bst.inorder())
 console.log("preorder: ", bst.preorder())
+console.log("postorder: ", bst.postorder())
