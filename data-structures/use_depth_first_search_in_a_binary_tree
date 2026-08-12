@@ -44,6 +44,7 @@ function BinarySearchTree() {
     
     function descendTree(node) {
       if (node.left) descendTree(node?.left)
+      if (node.right) descendTree(node?.right)
       nodes.push(node?.value)
       return nodes
     }
