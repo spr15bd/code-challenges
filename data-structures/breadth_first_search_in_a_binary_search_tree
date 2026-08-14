@@ -7,6 +7,8 @@ function Node(value) {
 function BinarySearchTree() {
   this.root = null;
   // Only change code below this line
-  
+  this.levelOrder = function() {
+  return []
+  }
   // Only change code above this line
 }
