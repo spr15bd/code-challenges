@@ -10,6 +10,13 @@ function BinarySearchTree() {
   function traverse(direction, root) {
     const queue = [root];
   }
+
+  // Level order traversal
+  function levelOrder() {
+    if (!this.root) return null;
+
+    return traverse("levelOrder", this.root);
+  }
   // Only change code above this line
 }
 
@@ -29,4 +36,4 @@ node.right.right.left = new Node(35)
 node.right.right.right = new Node(40)
 bst.root = node
 
-bst.traverse(1, )
+bst.levelOrder('levelOrder', bst.root)
