@@ -12,13 +12,13 @@ function BinarySearchTree() {
     let traversedNodes = []
 
     if (direction === 'levelOrder') {
-      console.log("Root is ", root.value)
+      console.log("Root is ", root.value, ", nodes: ", traversedNodes)
       traversedNodes.push(root.value)
       if (root.left) {
-        return traverse(root.left)
+        traversedNodes.push(this.traverse(direction, root.left))
       }
       if (root.right) {
-        traversedNodes.push(root.left)
+        traversedNodes.push(this.traverse(direction, root.right))
       }
     }
   }
