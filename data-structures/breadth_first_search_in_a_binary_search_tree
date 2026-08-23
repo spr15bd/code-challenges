@@ -7,12 +7,13 @@ function Node(value) {
 function BinarySearchTree() {
   this.root = null;
   // Only change code below this line
+  this.traversedNodes = []
   this.traverse = function (direction, root) {
     const queue = [root];
 
     if (direction === 'levelOrder') {
-      traversedNodes.push(root.value)
-      console.log("Root value ", root.value, ", nodes: ", traversedNodes)
+      this.traversedNodes.push(root.value)
+      console.log("Root value ", root.value, ", nodes: ", this.traversedNodes)
       if (root.left) {
         this.traverse(direction, root.left)
       }
@@ -25,7 +26,7 @@ function BinarySearchTree() {
   // Level order traversal
   this.levelOrder = function () {
     if (!this.root) return null;
-    let traversedNodes = []
+    
     return this.traverse("levelOrder", this.root);
   }
   // Only change code above this line
