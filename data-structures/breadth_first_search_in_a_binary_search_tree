@@ -15,11 +15,12 @@ function BinarySearchTree() {
       this.traversedNodes.push(root.value)
       console.log("Root value ", root.value, ", nodes: ", this.traversedNodes)
       if (root.left) {
-        this.traverse(direction, root.left)
+        this.traversedNodes.push(root.left.value)
       }
       if (root.right) {
-        this.traverse(direction, root.right)
+        this.traversedNodes.push(root.right.value)
       }
+      console.log("Root value ", root.value, ", nodes: ", this.traversedNodes)
     }
   }
 
