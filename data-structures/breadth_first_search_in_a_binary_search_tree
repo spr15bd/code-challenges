@@ -12,15 +12,24 @@ function BinarySearchTree() {
     const queue = [root];
 
     if (direction === 'levelOrder') {
-      this.traversedNodes.push(queue.shift().value)
+      let root = queue.shift()
+      this.traversedNodes.push(root.value)
       console.log("Root value ", root.value, ", nodes: ", this.traversedNodes)
       if (root.left) {
-        this.traversedNodes.push(root.left.value)
+        this.addLeft(root.left)
       }
       if (root.right) {
-        this.traversedNodes.push(root.right.value)
+        this.addRight(root.right)
       }
       console.log("Root value ", root.value, ", nodes: ", this.traversedNodes)
+    }
+
+    this.addLeft = function(node) {
+      this.traversedNodes.push(node.left)
+    }
+
+    this.addRight = function(node) {
+      this.traversedNodes.push(node.right)
     }
   }
 
