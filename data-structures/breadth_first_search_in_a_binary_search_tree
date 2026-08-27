@@ -9,27 +9,27 @@ function BinarySearchTree() {
   // Only change code below this line
   this.traversedNodes = []
   this.traverse = function (direction, root) {
-    const queue = [root];
+    let queue = [root];
 
     if (direction === 'levelOrder') {
       let root = queue.shift()
       this.traversedNodes.push(root.value)
       console.log("Root value ", root.value, ", nodes: ", this.traversedNodes)
       if (root.left) {
-        this.addLeft(root.left)
+        addLeft(root.left)
       }
       if (root.right) {
-        this.addRight(root.right)
+        addRight(root.right)
       }
-      console.log("Root value ", root.value, ", nodes: ", this.traversedNodes)
+      this.traverse('levelOrder', queue)
     }
 
-    this.addLeft = function(node) {
-      this.traversedNodes.push(node.left)
+    function addLeft(node) {
+      queue.push(node.left)
     }
 
-    this.addRight = function(node) {
-      this.traversedNodes.push(node.right)
+    function addRight(node) {
+      queue.push(node.right)
     }
   }
 
