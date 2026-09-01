@@ -38,7 +38,13 @@ function BinarySearchTree() {
   // Level order traversal
   this.levelOrder = function () {
     if (!this.root) return null;
-    
+    let nodes = []
+    let queue = this.root
+
+    queue.forEach(item=>{
+      nodes.push(queue.pop())
+      console.log("nodes: ", nodes)
+    })
     this.traverse("levelOrder", [this.root]);
   }
   // Only change code above this line
