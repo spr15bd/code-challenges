@@ -43,10 +43,12 @@ function BinarySearchTree() {
     // start by adding the root node to a queue
     let queue = this.root
 
-    while (queue.left || queue.right) {
+    while (queue.value) {
       nodes.push(queue.value)
       console.log("nodes: ", nodes)
       // inspect subtrees
+      if (queue.left) nodes.push(queue.left)
+      if (queue.right) nodes.push(queue.right)
     }
     this.traverse("levelOrder", [this.root]);
   }
