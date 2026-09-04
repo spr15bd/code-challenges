@@ -47,10 +47,13 @@ function BinarySearchTree() {
       nodes.push(queue.value)
       console.log("nodes: ", nodes)
       // inspect subtrees
-      if (queue.left) nodes.push(queue.left)
-      if (queue.right) nodes.push(queue.right)
+      if (queue.left) {
+        queue = queue.left
+      }
+      else if (queue.right) {
+        queue = queue.right
+      }
     }
-    this.traverse("levelOrder", [this.root]);
   }
   // Only change code above this line
 }
