@@ -10,16 +10,18 @@ function BinarySearchTree() {
   let nodes = []
   this.traverse = function (root) {
     // start by adding the root node to a queue
-    let queue = [root]
+    let queue = [root.value]
     while (queue.length>0) {
       nodes.push(queue.shift())
       console.log("nodes: ", nodes)
       // inspect subtrees
       if (queue.left) {
-        queue = queue.left
+        queue.push(queue.left)
+        this.traverse(queue.left)
       }
-      else if (queue.right) {
-        queue = queue.right
+      if (queue.right) {
+        queue.push(queue.right)
+        this.traverse(queue.right)
       }
     }
   }  
