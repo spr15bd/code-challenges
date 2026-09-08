@@ -17,14 +17,11 @@ function BinarySearchTree() {
       // inspect subtrees
       if (root.left) {
         queue.push(root.left)
-        this.traverse(root.left)
       }
       if (root.right) {
         queue.push(root.right)
-        this.traverse(root.right)
       }
       console.log("queue is now ", queue)
-      //this.traverse(queue)
     }
   }  
 
