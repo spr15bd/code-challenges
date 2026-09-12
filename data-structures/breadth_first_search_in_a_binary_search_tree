@@ -41,7 +41,22 @@ function BinarySearchTree() {
   }
 
   this.reverseTraverse = function (root) {
-    return root
+    let queue = [root]
+    while (queue.length>0) {
+      console.log("queue is now ", queue, " (", queue.length, " values)")
+      let root = queue.pop()
+      // dequeue the first item in the queue, add it to a new array
+      nodes.push(root.value)
+    }
+    console.log("nodes: ", nodes)
+    // inspect subtrees
+    if (root.left) {
+      queue.push(root.left)
+    }
+    if (root.right) {
+      queue.push(root.right)
+    }
+    return nodes
   }
   // Only change code above this line
 }
