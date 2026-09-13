@@ -44,23 +44,23 @@ function BinarySearchTree() {
     let queue = [root]
     while (queue.length>0) {
       console.log("queue is now ", queue, " (", queue.length, " values)")
-      let root = queue.pop()
+      let root = queue.shift()
       // dequeue the first item in the queue, add it to a new array
       nodes.push(root.value)
-    }
-    console.log("nodes: ", nodes)
-    // inspect subtrees
-    if (root.left) {
-      queue.push(root.left)
-    }
-    if (root.right) {
-      queue.push(root.right)
+    
+      console.log("nodes: ", nodes)
+      // inspect subtrees
+      if (root.right) {
+        queue.push(root.right)
+      }
+      if (root.left) {
+        queue.push(root.left)
+      }
     }
     return nodes
   }
   // Only change code above this line
 }
-
 
 // test
 let bst = new BinarySearchTree()
@@ -77,4 +77,4 @@ node.right.right.left = new Node(35)
 node.right.right.right = new Node(40)
 bst.root = node
 
-bst.levelOrder('levelOrder', bst.root)
+bst.reverseLevelOrder(bst.root)
