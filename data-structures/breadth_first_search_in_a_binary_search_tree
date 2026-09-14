@@ -12,11 +12,9 @@ function BinarySearchTree() {
     // start by adding the root node to a queue
     let queue = [root]
     while (queue.length>0) {
-      console.log("queue is now ", queue, " (", queue.length, " values)")
-      let root = queue.shift()
       // dequeue the first item in the queue, add it to a new array
+      let root = queue.shift()
       nodes.push(root.value)
-      console.log("nodes: ", nodes)
       // inspect subtrees
       if (root.left) {
         queue.push(root.left)
@@ -30,25 +28,20 @@ function BinarySearchTree() {
 
   this.levelOrder = function() {
     if (!this.root) return null
-
     return this.traverse(this.root)
   }
 
   this.reverseLevelOrder = function() {
     if (!this.root) return null
-
     return this.reverseTraverse(this.root)
   }
 
   this.reverseTraverse = function (root) {
     let queue = [root]
     while (queue.length>0) {
-      console.log("queue is now ", queue, " (", queue.length, " values)")
-      let root = queue.shift()
       // dequeue the first item in the queue, add it to a new array
+      let root = queue.shift()
       nodes.push(root.value)
-    
-      console.log("nodes: ", nodes)
       // inspect subtrees
       if (root.right) {
         queue.push(root.right)
