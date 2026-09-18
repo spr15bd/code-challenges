@@ -10,9 +10,11 @@ function BinarySearchTree() {
   // Only change code below this line
   this.remove = function (node) {
     console.log("removing: ", node)
+    console.log(this.root)
+    findNode(node)
     function findNode(node) {
       if (!node) return null
-      console.log(node)
+      console.log(this.root)
     }
   }
 }
