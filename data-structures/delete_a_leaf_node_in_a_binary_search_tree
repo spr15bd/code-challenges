@@ -8,10 +8,16 @@ function Node(value) {
 function BinarySearchTree() {
   this.root = null;
   // Only change code below this line
-  this.remove = function (node) {
-    console.log("removing: ", node)
+  this.remove = function (targetNode) {
+    console.log("removing: ", targetNode)
+    if (!this.root) return null
     console.log(this.root)
     // find node
+    if (this.root.value === targetNode) {
+      if (!this.root.left && !this.root.right) {
+        this.root = null
+      }
+    }
   }
 }
 
