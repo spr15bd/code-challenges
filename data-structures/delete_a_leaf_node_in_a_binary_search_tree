@@ -11,18 +11,20 @@ function BinarySearchTree() {
   this.remove = function (targetNode) {
     console.log("removing: ", targetNode)
     if (!this.root) return null
-    console.log(this.root)
     // find node
     while (targetNode !== this.root.value) {
-      if (this.root.value === targetNode) {
-      if (!this.root.left && !this.root.right) {
-        this.root = null
+      if (this.root.value === targetNode) { // found the node we're looking for
+        console.log("found ", targetNode)
+        if (!this.root.left && !this.root.right) {
+          this.root = null
+        }
+      } else if (targetNode<this.root.value) { // didn't find it
+        if (!this.root.left) return null
+        this.root = this.root.left
+      } else {
+        if (!this.root.right) return null
+        this.root = this.root.right
       }
-    } else if (targetNode<this.root.value) {
-      targetNode = this.root.left
-    } else {
-      targetNode = this.root.right
-    }
     }
   }
 }
@@ -43,4 +45,4 @@ node.right.right = new Node(36)
 node.right.right.left = new Node(35)
 node.right.right.right = new Node(40)
 bst.root = node
-bst.remove(53)
+bst.remove(11)
