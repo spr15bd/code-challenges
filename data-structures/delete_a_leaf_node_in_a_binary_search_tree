@@ -11,14 +11,15 @@ function BinarySearchTree() {
   this.remove = function (targetNode) {
     console.log("removing: ", targetNode)
     if (!this.root) return null
+    let foundTargetNode = false
     // find node
-    while (targetNode !== this.root.value) {
+    while (!foundTargetNode) {
       if (this.root.value === targetNode) { // found the node we're looking for
         console.log("found ", targetNode)
-        if (!this.root.left && !this.root.right) {
-          this.root = null
-        }
+        foundTargetNode = true
+      
       } else if (targetNode<this.root.value) { // didn't find it
+        console.log("didnt find node")
         if (!this.root.left) return null
         this.root = this.root.left
       } else {
