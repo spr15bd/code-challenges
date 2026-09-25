@@ -27,6 +27,9 @@ function BinarySearchTree() {
         this.root = this.root.right
       }
     }
+    if (!this.root.left && !this.root.right) {
+      // set parent to null
+    }
   }
 }
 
