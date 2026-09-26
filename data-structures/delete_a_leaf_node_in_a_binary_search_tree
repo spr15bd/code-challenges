@@ -12,6 +12,7 @@ function BinarySearchTree() {
     console.log("removing: ", targetNode)
     if (!this.root) return null
     let foundTargetNode = false
+    // keep track of the parent of node being deleted
     // find node
     while (!foundTargetNode) {
       if (this.root.value === targetNode) { // found the node we're looking for
