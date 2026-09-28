@@ -14,7 +14,6 @@ function BinarySearchTree() {
     let foundTargetNode = false
     // keep track of the parent of node being deleted
     // find node
-    let oldRoot = null
     let remainingTree = this.root
 
     while (!foundTargetNode) {
@@ -35,13 +34,16 @@ function BinarySearchTree() {
     console.log("end of while, remaining tree ", remainingTree)
     remainingTree.value = null
     if (!remainingTree.left?.value && !remainingTree.right?.value) {
-      // set parent to null
+      // if we're deleting the root node and it has no children,
+      // set the root to null
+      if (remainingTree === this.root) {
+          this.root = null
+      }
       remainingTree = null
       console.log("after deletion, root is now ", this.root)
     }
   }
 }
-
 
 
 // test
