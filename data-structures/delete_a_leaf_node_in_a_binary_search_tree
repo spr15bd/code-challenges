@@ -9,7 +9,6 @@ function BinarySearchTree() {
   this.root = null;
   // Only change code below this line
   this.remove = function (targetNode) {
-    console.log("removing: ", targetNode)
     if (!this.root) return null
     let foundTargetNode = false
     // keep track of the parent of node being deleted
@@ -18,10 +17,8 @@ function BinarySearchTree() {
 
     while (!foundTargetNode) {
       if (remainingTree.value === targetNode) { // found the node we're looking for
-        console.log("found ", targetNode)
         foundTargetNode = true
       } else if (targetNode<remainingTree.value) { // didn't find it
-        console.log("didnt find node")
         if (!remainingTree.left) return null
         this.oldRoot = remainingTree
         remainingTree = remainingTree.left
@@ -31,7 +28,6 @@ function BinarySearchTree() {
         remainingTree = remainingTree.right
       }
     }
-    console.log("end of while, remaining tree ", remainingTree)
     remainingTree.value = null
     if (!remainingTree.left?.value && !remainingTree.right?.value) {
       // if we're deleting the root node and it has no children,
@@ -40,24 +36,6 @@ function BinarySearchTree() {
           this.root = null
       }
       remainingTree = null
-      console.log("after deletion, root is now ", this.root)
     }
   }
 }
-
-
-// test
-let bst = new BinarySearchTree()
-let node = new Node(18)
-/*node.left = new Node(9)
-node.left.left = new Node(4)
-node.left.right = new Node(13)
-node.left.right.left = new Node(11)
-node.left.right.left.left = new Node(10)
-node.right = new Node(27)
-node.right.left = new Node(23)
-node.right.right = new Node(36)
-node.right.right.left = new Node(35)
-node.right.right.right = new Node(40)*/
-bst.root = node
-bst.remove(18)
