@@ -49,5 +49,12 @@ function BinarySearchTree() {
     }
     // Case 2: Target has one child
     // Only change code below this line
+    if (children === 1) {
+      if (target == this.root) {
+        this.root = this.root.left?this.root.left:this.root.right;
+      } else {
+
+      }
+    }
   };
 }
