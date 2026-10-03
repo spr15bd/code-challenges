@@ -53,31 +53,13 @@ function BinarySearchTree() {
       if (target == this.root) {
         this.root = this.root.left?this.root.left:this.root.right;
       } else {
-        if (this.target.left) {
-          this.parent.left = this.target.left
+        console.log("target node to remove is: ", target)
+        if (target.left) {
+          this.parent.left = target.left
         } else {
-          this.parent.right = this.target.right
+          this.parent.right = target.right
         }
-        this.target = null
       }
     }
   };
 }
-
-
-
-
-// test
-let bst = new BinarySearchTree()
-let node = new Node(18)
-node.left = new Node(9)
-node.left.left = new Node(4)
-node.left.right = new Node(13)
-node.left.right.left = new Node(11)
-node.left.right.left.left = new Node(10)
-node.right = new Node(27)
-node.right.left = new Node(23)
-node.right.right = new Node(36)
-node.right.right.left = new Node(35)
-node.right.right.right = new Node(40)
-bst.root = node
