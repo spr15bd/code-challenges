@@ -53,11 +53,10 @@ function BinarySearchTree() {
       if (target == this.root) {
         this.root = this.root.left?this.root.left:this.root.right;
       } else {
-        console.log("target node to remove is: ", target)
         if (target.left) {
-          this.parent.left = target.left
+          parent.left = target.left
         } else {
-          this.parent.right = target.right
+          parent.right = target.right
         }
       }
     }
