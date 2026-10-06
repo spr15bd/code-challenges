@@ -63,5 +63,8 @@ function BinarySearchTree() {
     }
     // Case 3: Target has two children
     // Only change code below this line
+    else if (children == 2) {
+
+    }
   };
 }
