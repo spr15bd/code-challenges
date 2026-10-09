@@ -11,6 +11,7 @@ function BinarySearchTree() {
     if (this.root === null) {
       return null;
     }
+
     var target;
     var parent = null;
     // Find the target value and its parent
@@ -64,7 +65,11 @@ function BinarySearchTree() {
     // Case 3: Target has two children
     // Only change code below this line
     else if (children == 2) {
-
+      console.log("2 children")
+      if (this.root.value && this.root.left.value && this.root.right.value && !this.root.left.left && !this.root.left.right && !this.root.right.left && !this.root.right.right) {
+        console.log("tree has 3 nodes")
+        this.root = null
+      }
     }
   };
 }
@@ -82,11 +87,10 @@ node.left.right = new Node(13)
 node.left.right.left = new Node(11)
 node.left.right.right = new Node(16)
 node.right = new Node(27)
-node.right.left = new Node(33)
 node.right.left = new Node(23)
 node.right.right = new Node(36)
 node.right.right.left = new Node(35)
 node.right.right.right = new Node(40)
 bst.root = node
-bst.remove(35)
-console.log(bst.root.right)
+bst.remove(18)
+console.log(bst)
