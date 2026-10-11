@@ -71,15 +71,16 @@ function BinarySearchTree() {
         this.root = null
       } else {
         console.log("tree has > 3 nodes, target: ", target)
-        console.log("min in tree: ", this.findMin(target))
+        console.log("min in tree: ", this.findMin(target.left))
       }
     }
   };
   this.findMin = function(tree) {
+    console.log("finding min in tree")
     let currentMin
     let currentNode
-    currentNode = tree.root
-    currentMin = tree.root.value
+    currentNode = tree
+    currentMin = tree.value
     while (currentNode) {
       currentNode = currentNode?.left
       if (currentNode) {
