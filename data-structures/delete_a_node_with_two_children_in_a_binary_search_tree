@@ -78,7 +78,6 @@ function BinarySearchTree() {
     }
   };
   this.findMin = function(tree) {
-    console.log("finding min in tree")
     let currentMin
     let currentNode
     currentNode = tree
@@ -92,8 +91,6 @@ function BinarySearchTree() {
     return currentMin
   }
 }
-
-
 
 
 
