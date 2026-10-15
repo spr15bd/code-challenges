@@ -73,11 +73,14 @@ function BinarySearchTree() {
         console.log("tree has > 3 nodes, target: ", target)
         console.log("min in tree: ", this.findMin(target.right))
         // replace the target node with the smallest value in right subtree
+        let parent = target.parent
         target.value = this.findMin(target.right)
+        target.value.parent = parent
       }
     }
   };
   this.findMin = function(tree) {
+    console.log("finding min in tree")
     let currentMin
     let currentNode
     currentNode = tree
@@ -91,6 +94,8 @@ function BinarySearchTree() {
     return currentMin
   }
 }
+
+
 
 
 
