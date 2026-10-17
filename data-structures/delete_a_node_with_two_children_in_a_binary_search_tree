@@ -98,9 +98,6 @@ function BinarySearchTree() {
 }
 
 
-
-
-
 // test
 let bst = new BinarySearchTree()
 let node = new Node(18)
