@@ -87,20 +87,23 @@ function BinarySearchTree() {
   };
   this.findMin = function(tree) {
     console.log("finding min in tree with root node: ", tree.value)
+    let currentMin
     let currentNode
     let currentNodeParent
     currentNode = tree
     currentMin = tree.value
     let minNode
     while (currentNode) {
-      currentNodeParent = currentNode
+      if (currentNode.left || currentNode.right) {
+        currentNodeParent = currentNode
+      }
       currentNode = currentNode?.left
       if (currentNode) {
         currentMin = currentNode?.value
         minNode = currentNode
       }
     }
-    return [minNode, currentNodeParent]
+    return [currentMin, currentNodeParent]
   }
 }
 
