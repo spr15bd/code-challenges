@@ -74,14 +74,13 @@ function BinarySearchTree() {
         let minSubTree = this.findMin(target.right)[0]
         let minParentTree = this.findMin(target.right)[1]
         console.log("min's parent tree: ", minParentTree)
+        minParentTree.left = null
         // replace the target node with the smallest value in right subtree
         console.log("parent of target is ", parent)
         target.value = minSubTree.value
+        parent.right = minSubTree.value
         //target.value.parent = parent
-        console.log("subtree is now: ", parent)
-        console.log("we need to delete the original 15")
-        
-        console.log("leaf is ", minSubTree)
+        console.log("tree is now: ", this.root)
       }
     }
   };
@@ -103,6 +102,7 @@ function BinarySearchTree() {
         minNode = currentNode
       }
     }
+    console.log("min is: ", currentMin)
     return [currentMin, currentNodeParent]
   }
 }
