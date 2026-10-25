@@ -65,26 +65,20 @@ function BinarySearchTree() {
     // Case 3: Target has two children
     // Only change code below this line
     else if (children == 2) {
-      console.log("target: ", target)
       if (target === this.root && this.root.value && this.root.left.value && this.root.right.value && !this.root.left.left && !this.root.left.right && !this.root.right.left && !this.root.right.right) {
-        console.log("tree has 3 nodes")
-        this.root = null
+        this.root.value = this.root.right.value
+        this.root.right = null
       } else {
-        console.log("tree has > 3 nodes, target: ", target)
         let minSubTree = this.findMin(target.right)[0]
-        console.log("min sub tree: ", minSubTree)
         let minParentTree = this.findMin(target.right)[1]
-        console.log("min's parent tree: ", minParentTree) //16,15 & 17
         minParentTree.left = null
         // replace the target node with the smallest value in right subtree
-        console.log("parent of target is ", parent)
         target.value = minSubTree
         console.log("tree is now: ", this.root.left.right, "end of tree")
       }
     }
   };
   this.findMin = function(tree) {
-    console.log("finding min in tree with root node: ", tree.value)
     let currentMin
     let currentNode
     let currentNodeParent
@@ -105,8 +99,6 @@ function BinarySearchTree() {
     return [currentMin, currentNodeParent]
   }
 }
-
-
 
 
 
