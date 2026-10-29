@@ -7,7 +7,12 @@ function Node(value) {
 function BinarySearchTree() {
   this.root = null;
   // Only change code below this line
-  
+  this.invert = function (tree) {
+    if (!tree) {
+      return null
+    }
+    return this.root
+  }
   // Only change code above this line
 }
 
