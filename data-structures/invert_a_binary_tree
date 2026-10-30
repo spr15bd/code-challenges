@@ -12,6 +12,12 @@ function BinarySearchTree() {
       return null
     }
     return this.root
+    if (tree.left) {
+      let temp = tree. right
+      tree.right = tree.left
+      tree.left = temp
+      console.log("Tree ", tree)
+    }
   }
   // Only change code above this line
 }
