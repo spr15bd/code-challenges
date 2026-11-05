@@ -17,16 +17,16 @@ function BinarySearchTree() {
     let temp
     if (tree.left) {
       console.log("set temp")
-      temp = tree.left.value
+      temp = tree.left
     }
     if (tree.right) {
       console.log("set left val")
-      tree.left.value = tree.right?.value
+      tree.left = tree.right
     }
     console.log("set right val")
-    if (tree.right) tree.right.value = temp
+    if (tree.right) tree.right = temp
     console.log("ok")
-    console.log("inverted ", tree.right?.value, " and ", tree.left?.value)
+    console.log("tree is now ", tree)
     if (tree.left) this.invert(tree.left)
     
     if (tree.right) this.invert(tree.right)
@@ -55,4 +55,4 @@ node.right.right.left = new Node(35)
 node.right.right.right = new Node(40)
 bst.root = node
 bst.invertTree()
-console.log("after invert: ", bst.right)
+console.log("after invert: ", bst.root)
