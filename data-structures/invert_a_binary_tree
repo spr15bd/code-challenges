@@ -7,29 +7,27 @@ function Node(value) {
 function BinarySearchTree() {
   this.root = null;
   // Only change code below this line
-  this.invertTree = function () {
+  this.invert = function () {
     if (!this.root) {
       return null
     }
-    this.invert(this.root)
+    return this.invertTree(this.root)
   }
-  this.invert = function (tree) {
+  this.invertTree = function (tree) {
     let temp
     if (tree.left) {
       console.log("set temp")
       temp = tree.left
     }
     if (tree.right) {
-      console.log("set left val")
       tree.left = tree.right
     }
-    console.log("set right val")
     if (tree.right) tree.right = temp
     console.log("ok")
     console.log("tree is now ", tree)
-    if (tree.left) this.invert(tree.left)
+    if (tree.left) this.invertTree(tree.left)
     
-    if (tree.right) this.invert(tree.right)
+    if (tree.right) this.invertTree(tree.right)
   }
   // Only change code above this line
 }
@@ -54,5 +52,5 @@ node.right.right = new Node(36)
 node.right.right.left = new Node(35)
 node.right.right.right = new Node(40)
 bst.root = node
-bst.invertTree()
-console.log("after invert: ", bst.root)
+bst.invert()
+//console.log("after invert: ", bst.root)
