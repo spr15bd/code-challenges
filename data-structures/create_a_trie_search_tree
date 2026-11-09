@@ -11,6 +11,10 @@ var Node = function() {
 };
 var Trie = function() {
   // Only change code below this line
-  
+  this.add = function(word) {
+    function addWord(word, root) {
+
+    }
+  }
   // Only change code above this line
 };
