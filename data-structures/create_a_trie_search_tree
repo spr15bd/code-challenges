@@ -14,10 +14,9 @@ var Trie = function() {
   this.add = function(word) {
     function addWord(word, root) {
       const currentNode = root
-      for (let i=0; i< word.length; i++) {
-        let n = new Node()
-        root.push(word[i])
-      }
+      // add 1st letter of word to the node
+      // pop 1st letter
+      // if word length is zero return
     }
   }
   // Only change code above this line
