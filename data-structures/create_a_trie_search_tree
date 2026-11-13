@@ -12,12 +12,22 @@ var Node = function() {
 var Trie = function() {
   // Only change code below this line
   this.add = function(word) {
+    let n = new Node()
+    addWord(word, n)
     function addWord(word, root) {
       const currentNode = root
       // add 1st letter of word to the node
+      currentNode.keys.set(1, word.shift())
       // pop 1st letter
       // if word length is zero return
+      if (word.length === 0) {
+        return
+      }
     }
   }
   // Only change code above this line
 };
+
+
+let trie = new Trie()
+trie.add("sport")
