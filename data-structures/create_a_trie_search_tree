@@ -14,7 +14,9 @@ var Trie = function() {
   this.nodes = []
   this.add = function(word) {
     let n = new Node()
-    this.nodes.push(addWord(word, n))
+    let addW = addWord(word, n)
+    console.log("added: ", addW)
+    this.nodes.push(addW)
     function addWord(word, root) {
       const currentNode = root
       // add 1st letter of word to the node
@@ -31,7 +33,7 @@ var Trie = function() {
     }
   }
   this.print = function() {
-    console.log("Nodes ", this.nodes[0])
+    console.log("Nodes ", this.nodes)
     return this.nodes
   }
   this.isWord = function() {
