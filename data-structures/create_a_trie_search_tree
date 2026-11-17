@@ -20,15 +20,15 @@ var Trie = function() {
     function addWord(word, root) {
       const currentNode = root
       // add 1st letter of word to the node
-      currentNode.keys.set(1, word[0])
+      currentNode.keys.set(word[0], 1)
       // pop 1st letter
       word = word.substring(1,word.length)
-      console.log("word is now: ", word)
+      console.log("currentNode is now: ", currentNode)
       // if word length is zero return
       if (word.length === 0) {
-        return root
+        return currentNode
       } else {
-        addWord(word, n)
+        return addWord(word, currentNode)
       }
     }
   }
