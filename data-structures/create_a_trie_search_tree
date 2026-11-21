@@ -19,8 +19,12 @@ var Trie = function() {
     this.nodes.push(addW)
     function addWord(word, root) {
       const currentNode = root
+      // Check if each subtree at each level has the then first letter of word as a key, and proceed by adding the letter to the subtree if not already there.
+      if (!Object.keys(currentNode.keys).includes(word[0])) {
+        currentNode.keys['letter'] = word[0]
+      }
       // add 1st letter of word to the node
-      currentNode.keys['letter'] = word[0]
+      
       console.log("currentNode is: ", currentNode)
       // pop 1st letter
       word = word.substring(1,word.length)
