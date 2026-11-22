@@ -23,9 +23,7 @@ var Trie = function() {
       if (!Object.keys(currentNode.keys).includes(word[0])) {
         currentNode.keys['letter'] = word[0]
       }
-      // add 1st letter of word to the node
       
-      console.log("currentNode is: ", currentNode)
       // pop 1st letter
       word = word.substring(1,word.length)
       console.log("currentNode is now: ", currentNode)
