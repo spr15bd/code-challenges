@@ -11,6 +11,7 @@ var Node = function() {
 };
 var Trie = function() {
   // Only change code below this line
+  let node = this.root
   this.nodes = []
   this.add = function(word) {
     let n = new Node()
@@ -21,7 +22,7 @@ var Trie = function() {
       const currentNode = root
       // Check if each subtree at each level has the then first letter of word as a key, and proceed by adding the letter to the subtree if not already there.
       if (!Object.keys(currentNode.keys).includes(word[0])) {
-        currentNode.keys['letter'] = word[0]
+        currentNode.keys[word[0]] = n
       }
       
       // pop 1st letter
