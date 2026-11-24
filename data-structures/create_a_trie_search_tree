@@ -17,11 +17,10 @@ var Trie = function() {
     let n = new Node()
     let addW = addWord(word, n)
     console.log("added: ", addW)
-    this.nodes.push(addW)
     function addWord(word, root) {
       const currentNode = root
       // Check if each subtree at each level has the then first letter of word as a key, and proceed by adding the letter to the subtree if not already there.
-      if (!Object.keys(currentNode.keys).includes(word[0])) {
+      if (!currentNode.keys.has(word[0])) {
         currentNode.keys[word[0]] = n
       }
       
@@ -30,6 +29,7 @@ var Trie = function() {
       console.log("currentNode is now: ", currentNode)
       // if word length is zero return
       if (word.length === 0) {
+        console.log("finished word")
         return currentNode
       } else {
         return addWord(word, currentNode)
@@ -37,7 +37,7 @@ var Trie = function() {
     }
   }
   this.print = function() {
-    console.log("Nodes ", this.nodes)
+    console.log("Nodes ", this.addW.keys['w'])
     return this.nodes
   }
   this.isWord = function() {
