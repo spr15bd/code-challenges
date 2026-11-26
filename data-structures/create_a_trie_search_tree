@@ -11,14 +11,13 @@ var Node = function() {
 };
 var Trie = function() {
   // Only change code below this line
-  let node = this.root
+  this.root = new Node()
   this.nodes = []
   this.add = function(word) {
     let n = new Node()
-    let addW = addWord(word, n)
-    console.log("added: ", addW)
-    function addWord(word, root) {
-      const currentNode = root
+    let addW = addWord(word, this.root)
+    this.nodes.push(addW)
+    function addWord(word, currentNode) {
       // Check if each subtree at each level has the then first letter of word as a key, and proceed by adding the letter to the subtree if not already there.
       if (!currentNode.keys.has(word[0])) {
         currentNode.keys[word[0]] = n
@@ -37,7 +36,7 @@ var Trie = function() {
     }
   }
   this.print = function() {
-    console.log("Nodes ", this.addW.keys['w'])
+    console.log("Nodes ", this.nodes)
     return this.nodes
   }
   this.isWord = function() {
