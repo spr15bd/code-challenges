@@ -36,8 +36,8 @@ var Trie = function() {
     }
   }
   this.print = function() {
-    console.log("Nodes ", this.nodes)
-    return this.nodes
+    console.log("Nodes ", this.nodes[0])
+    return this.nodes.keys[0]
   }
   this.isWord = function() {
     return false
